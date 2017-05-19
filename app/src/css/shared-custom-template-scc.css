@@ -1,0 +1,34 @@
+/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+
+.user_hover_777:hover {
+	color:#777;
+}
+
+.user_focus_777:focus{
+	color:#777;
+}
+
+.entry-title{
+display:none;
+}
+
+#secondary .widget a {
+	color:#636467;
+}
+
+.user_img_w100{
+	max-width:100px
+}
+
+@media screen and (min-width: 1066px){
+	.user_h1_on_more1066px { font-size:3em;}
+}
+
+@media screen and (max-width:767px){
+	.user_row_height_100px{height:100px;overflow:hidden; white-space: nowrap;}
+}
