@@ -70,7 +70,7 @@ module.exports = function(grunt) {
         tasks: ['jshint:test', 'nodeunit']
       },
     }
-     /* Clear out the images directory if it exists */
+     /* Clear out the images directory if it exists   */
     ,clean: {
       dev: {
         src: ['images'],
