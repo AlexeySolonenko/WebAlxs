@@ -1,3 +1,73 @@
+/* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
+/* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
+/* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
+/* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
+/* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
+
+var bio = {
+  
+  /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+  
+	"name" : "Alexey Solonenko",
+	"skills" : 
+	  [
+		{
+			"name" : "HTML",
+			"level" : "+"
+		},
+		
+		{
+			"name" : "JS",
+			"level" : "+"			
+		},
+
+		{
+			"name" : "CSS",
+			"level" : "++"			
+		}
+	  ],
+	  "statement" : "Engineer Transiting to Front-End Web Development",
+    "photoUrlSmall" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo-mir.jpg",
+	  "photoUrlLarge" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo.jpg",
+    "photoUrlAlt" :"Profile photo. Baltic grey haired male around 30. Medium weight. 190 cm or 6.23 feet. Fragile build. Checkered shirt. Black and white photo. ",
+	  "contacts" : [
+			{ "location" : "Malta, EU" },
+			{ "skype" : "" }
+		],
+	  "metrics": null,
+	  "origin" : "Russia",
+	
+  /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+  "display" : function(objectBio){
+      var formattedHTML = "";
+      objectBio.photoUrlSmall.length > 2 ? (
+       formattedHTML = HTMLbioPicSmall.replace("%data%",objectBio["photoUrlSmall"])
+				):(
+					console.log("No small bio photo specified")
+        )
+      ;
+
+      objectBio.photoUrlLarge.length > 2 ? (
+       formattedHTML = formattedHTML + HTMLbioPicLarge.replace("%data%",objectBio["photoUrlLarge"])
+				):(
+					console.log("No large bio photo specified")
+        )
+      ;
+      
+  
+        formattedHTML = formattedHTML + HTMLbioPicDefault.replace("%data%",objectBio["photoUrlLarge"]);
+  
+      
+      objectBio.photoUrlAlt.length > 2 ? (
+        formattedHTML = formattedHTML + HTMLbioPicAlt.replace("%data%",objectBio["photoUrlAlt"])
+        ):(
+					console.log("No alt text specified specified")
+        )
+      ;
+      console.log(formattedHTML);
+      $(".start-page-id-header").append(formattedHTML);
+  }
+}
 
 
 /* WORK OBJECT */
@@ -155,37 +225,6 @@ var projects = {
 /* SKILLS */
 /* SKILLS */
 
-var bio = {
-	"name" : "Alexey Solonenko",
-	"skills" : 
-	  [
-		{
-			"name" : "HTML",
-			"level" : "+"
-		},
-		
-		{
-			"name" : "JS",
-			"level" : "+"			
-		},
 
-		{
-			"name" : "CSS",
-			"level" : "++"			
-		}
-	  ],
-	  "statement" : "Engineer Transiting to Front-End Web Development",
-	  "photoUrl" : "images/AlexeySolonenko_Photo_.PNG",
-	  "contacts" : 
-		[
-			{ "location" : "Malta, EU" },
-			{ "skype" : "" }
-			
-		],
-	  "metrics": null,
-	  "origin" : "Russia"
-	  
-	  
-}
 
 

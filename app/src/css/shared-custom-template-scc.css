@@ -61,7 +61,8 @@ CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
 
 */
 .start-page-id-CVphoto, .start-page-id-name,
-.start-page-id-contacts{
+.start-page-id-contacts, .start-page-id-header,
+.start-page-id-bioPic {
   
 }
 
