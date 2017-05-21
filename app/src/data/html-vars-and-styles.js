@@ -1,5 +1,13 @@
-var HTMLheaderName = '<h1 id="name">%data%</h1>';
+// HEADER RAW
+
+var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1><hr>';
+var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1><hr>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
+var HTMLbioPicSmall = '<picture class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
+var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
+var HTMLbioPicDefault = '<img class="img-responsive img-circle center-block" src="%data%"';
+var HTMLbioPicAlt = ' alt="%data%" ></picture>';
+
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -9,12 +17,6 @@ var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
-// var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLbioPicSmall = '<div class="col-xs-4">'+
-  '<picture><source media="(max-width: 799px)" srcset="%data%">';
-var HTMLbioPicLarge = '<source media="(min-width: 800px)" srcset="%data%">';
-var HTMLbioPicDefault = '<img class="img-responsive start-page-id-bioPic center-block" src="%data%"';
-var HTMLbioPicAlt = ' alt="%data%" ></picture></div>';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';

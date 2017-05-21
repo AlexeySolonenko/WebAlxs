@@ -40,24 +40,38 @@ var bio = {
   /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
   "display" : function(objectBio){
       var formattedHTML = "";
+      
+      objectBio.name.length > 2 ? (
+        formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]),
+        $(".start-page-id-name-small").append(formattedHTML),
+        console.log(formattedHTML),
+        formattedHTML = " ",
+        formattedHTML = HTMLheaderNameBig.replace("%data%",objectBio["name"]),
+        $(".start-page-id-name-big").append(formattedHTML),
+        console.log(formattedHTML)
+				):(
+					console.log("No name specified")
+        )
+      ;
+      // TO CONTINUE WITH TOOLTIPS
+      
+      formattedHTML = " ";
+      
       objectBio.photoUrlSmall.length > 2 ? (
        formattedHTML = HTMLbioPicSmall.replace("%data%",objectBio["photoUrlSmall"])
 				):(
 					console.log("No small bio photo specified")
         )
       ;
-
       objectBio.photoUrlLarge.length > 2 ? (
        formattedHTML = formattedHTML + HTMLbioPicLarge.replace("%data%",objectBio["photoUrlLarge"])
 				):(
 					console.log("No large bio photo specified")
         )
       ;
-      
-  
-        formattedHTML = formattedHTML + HTMLbioPicDefault.replace("%data%",objectBio["photoUrlLarge"]);
-  
-      
+        
+      formattedHTML = formattedHTML + HTMLbioPicDefault.replace("%data%",objectBio["photoUrlLarge"]);
+       
       objectBio.photoUrlAlt.length > 2 ? (
         formattedHTML = formattedHTML + HTMLbioPicAlt.replace("%data%",objectBio["photoUrlAlt"])
         ):(
@@ -65,7 +79,7 @@ var bio = {
         )
       ;
       console.log(formattedHTML);
-      $(".start-page-id-header").append(formattedHTML);
+      $(".start-page-id-CVphoto").append(formattedHTML);
   }
 }
 
