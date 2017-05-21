@@ -1,0 +1,90 @@
+* [33mcommit 0744cea[m
+[31m|[m Author: Alexey Solonenko <ot2@bk.ru>
+[31m|[m Date:   Mon May 22 00:33:20 2017 +0200
+[31m|[m 
+[31m|[m     refactor: Make Name field.
+[31m|[m     
+[31m|[m     Made name field.
+[31m|[m     Started working out the layouts.
+[31m|[m     Introduced picture element for art direction
+[31m|[m     of the photo.
+[31m|[m     
+[31m|[m     IMPORTANT Updated jqurery
+[31m|[m     
+[31m|[m     Font size remains the same, but it uppercases on md
+[31m|[m     and sm screens.
+[31m|[m     
+[31m|[m     Screens grid will be experimented further.
+[31m|[m 
+* [33mcommit 72c8661[m
+[31m|[m Author: Alexey Solonenko <ot2@bk.ru>
+[31m|[m Date:   Sun May 21 22:56:31 2017 +0200
+[31m|[m 
+[31m|[m     refactor: Setup HTML dataflow
+[31m|[m     
+[31m|[m     Initiated HTML viriables file. Each HTML variable
+[31m|[m     describes styles and %data% fields for links and texts.
+[31m|[m     
+[31m|[m     Initiated objects file that contains all properties, methods,
+[31m|[m     and, actually, %data% fields with actual links and texts.
+[31m|[m     
+[31m|[m     Successfully tested images section.
+[31m|[m     Continue with header sections texts and etc.
+[31m|[m 
+* [33mcommit 00d50bd[m
+[31m|[m Author: Alexey Solonenko <ot2@bk.ru>
+[31m|[m Date:   Sun May 21 19:27:20 2017 +0200
+[31m|[m 
+[31m|[m     refactor: Setup ftp upload. Setup css import from ftp.
+[31m|[m     
+[31m|[m     Custom CSS is imported from a file on the same
+[31m|[m     server.
+[31m|[m     Started HTML mark-up.
+[31m|[m     Now using a single upload to ftp server -
+[31m|[m     a great time saver.
+[31m|[m     Next is goint to digest the previous Udacity course
+[31m|[m     work on the page structure.
+[31m|[m 
+* [33mcommit 97ca34e[m
+[31m|[m Author: Alexey Solonenko <ot2@bk.ru>
+[31m|[m Date:   Sun May 21 12:38:06 2017 +0200
+[31m|[m 
+[31m|[m     refactor: merge sharedcss into master branch
+[31m|[m 
+* [33mcommit 4cf098b[m
+[31m|[m Author: Alexey Solonenko <ot2@bk.ru>
+[31m|[m Date:   Sun May 21 12:33:15 2017 +0200
+[31m|[m 
+[31m|[m     refactor: Make main menu-links
+[31m|[m     
+[31m|[m     Make main menu using word-press tamplate.
+[31m|[m     Use tooltips on desktops.
+[31m|[m     Use bootstrap built-in media queries.
+[31m|[m     Make menu names showing on small devices.
+[31m|[m     Make menu tooltips showing on desktops.
+[31m|[m     Problem: ipad pro and similar high-res tablets are
+[31m|[m     not recognized as tablets - need to recheck later on.
+[31m|[m     
+[31m|[m     BRANCH TO BE MERGED WITH MASTER.
+[31m|[m     NEW BRANCH WILL BE CREATED ONLY IF REQUIRED.
+[31m|[m     
+[31m|[m     new file:   ../alxs.html
+[31m|[m     modified:   shared-custom-template-scc.css
+[31m|[m     new file:   ../main-menu-links.html
+[31m|[m     Untracked files:
+[31m|[m 
+* [33mcommit 9716034[m
+[31m|[m Author: Alexey Solonenko <ot2@bk.ru>
+[31m|[m Date:   Fri May 19 21:10:22 2017 +0200
+[31m|[m 
+[31m|[m     Init commit.
+[31m|[m     
+[31m|[m     Initial commit.
+[31m|[m     Shows directory structure.
+[31m|[m     Shows shared custom css for a website template.
+[31m|[m 
+* [33mcommit badee41[m
+  Author: Alexey Solonenko <ot2@bk.ru>
+  Date:   Fri May 19 21:07:56 2017 +0200
+  
+      Push to remote and share on forum

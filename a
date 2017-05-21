@@ -1,0 +1,90 @@
+[33mcommit 0744cea1c201f99ed8df59d75e76e6074bb38c64[m
+Author: Alexey Solonenko <ot2@bk.ru>
+Date:   Mon May 22 00:33:20 2017 +0200
+
+    refactor: Make Name field.
+    
+    Made name field.
+    Started working out the layouts.
+    Introduced picture element for art direction
+    of the photo.
+    
+    IMPORTANT Updated jqurery
+    
+    Font size remains the same, but it uppercases on md
+    and sm screens.
+    
+    Screens grid will be experimented further.
+
+[33mcommit 72c86612ffc92ccdd19dff4dc1ac3b720259dc98[m
+Author: Alexey Solonenko <ot2@bk.ru>
+Date:   Sun May 21 22:56:31 2017 +0200
+
+    refactor: Setup HTML dataflow
+    
+    Initiated HTML viriables file. Each HTML variable
+    describes styles and %data% fields for links and texts.
+    
+    Initiated objects file that contains all properties, methods,
+    and, actually, %data% fields with actual links and texts.
+    
+    Successfully tested images section.
+    Continue with header sections texts and etc.
+
+[33mcommit 00d50bd7d80aca217d18639137c5ecb80b3a4071[m
+Author: Alexey Solonenko <ot2@bk.ru>
+Date:   Sun May 21 19:27:20 2017 +0200
+
+    refactor: Setup ftp upload. Setup css import from ftp.
+    
+    Custom CSS is imported from a file on the same
+    server.
+    Started HTML mark-up.
+    Now using a single upload to ftp server -
+    a great time saver.
+    Next is goint to digest the previous Udacity course
+    work on the page structure.
+
+[33mcommit 97ca34ea0053089cf2e1305f0f35e2fd21267220[m
+Author: Alexey Solonenko <ot2@bk.ru>
+Date:   Sun May 21 12:38:06 2017 +0200
+
+    refactor: merge sharedcss into master branch
+
+[33mcommit 4cf098bd49da9050c5c57204096d5f6ba0e5bc8e[m
+Author: Alexey Solonenko <ot2@bk.ru>
+Date:   Sun May 21 12:33:15 2017 +0200
+
+    refactor: Make main menu-links
+    
+    Make main menu using word-press tamplate.
+    Use tooltips on desktops.
+    Use bootstrap built-in media queries.
+    Make menu names showing on small devices.
+    Make menu tooltips showing on desktops.
+    Problem: ipad pro and similar high-res tablets are
+    not recognized as tablets - need to recheck later on.
+    
+    BRANCH TO BE MERGED WITH MASTER.
+    NEW BRANCH WILL BE CREATED ONLY IF REQUIRED.
+    
+    new file:   ../alxs.html
+    modified:   shared-custom-template-scc.css
+    new file:   ../main-menu-links.html
+    Untracked files:
+
+[33mcommit 9716034287dbe55c4ebd3b072bd9c7598b824fc6[m
+Author: Alexey Solonenko <ot2@bk.ru>
+Date:   Fri May 19 21:10:22 2017 +0200
+
+    Init commit.
+    
+    Initial commit.
+    Shows directory structure.
+    Shows shared custom css for a website template.
+
+[33mcommit badee4137943f22fa978e93dc1a0c39bda876861[m
+Author: Alexey Solonenko <ot2@bk.ru>
+Date:   Fri May 19 21:07:56 2017 +0200
+
+    Push to remote and share on forum
