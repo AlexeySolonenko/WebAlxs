@@ -32,3 +32,17 @@ display:none;
 @media screen and (max-width:767px){
 	.user_row_height_100px{height:100px;overflow:hidden; white-space: nowrap;}
 }
+
+.user_nav_bar{
+  position:absolute;
+  left:0px;
+  right:0px;
+  top:70px;
+  border:1px solid red;
+}
+
+.user_nav_main_menu_overlap_tooltip{
+  margin:-30px;
+  padding:30px;
+  z-index:100;  
+}
