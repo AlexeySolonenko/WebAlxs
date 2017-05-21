@@ -46,3 +46,23 @@ display:none;
   padding:30px;
   z-index:100;  
 }
+
+.user-test-red-border{
+  border: 1px solid red;
+}
+
+
+/*
+CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
+
+CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
+
+CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
+
+*/
+.start-page-id-CVphoto, .start-page-id-name,
+.start-page-id-contacts{
+  
+}
+
+
