@@ -11,8 +11,8 @@ var bio = {
 	"name" : "Alexey Solonenko",
 	"skills" : 
 	  [
-		{
-			"name" : "HTML",
+		{ 
+      "name" : "HTML",
 			"level" : "+"
 		},
 		
@@ -24,23 +24,52 @@ var bio = {
 		{
 			"name" : "CSS",
 			"level" : "++"			
-		}
+		},
+    {
+      "name" : "Git",
+      "level" : ""
+    },
+    {
+      "name" : "Grunt",
+      "level" : ""
+    },
+    {
+      "name" : "Responsive",
+      "level" : ""
+    },
+    {
+      "name" : "jQuery",
+      "level" : ""
+    },
+    {
+      "name" : "",
+      "level" : ""
+    }
 	  ],
 	  "statement" : "Engineer Transiting to Front-End Web Development",
     "photoUrlSmall" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo-mir.jpg",
 	  "photoUrlLarge" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo.jpg",
     "photoUrlAlt" :"Profile photo. Baltic grey haired male around 30. Medium weight. 190 cm or 6.23 feet. Fragile build. Checkered shirt. Black and white photo. ",
+    "photoTooltip" :
+      "Responsive images using art direction and srcset.&#13;&#10;"+
+      "Zoom (if your browser supports) or use dev tools to test.&#13;&#10;"+
+      "Also I am using proven framework media-queries &#13;&#10;"+
+      "based tools for older browsers. Grunt automated &#13;&#10; "+
+      "processing and optimization.",
 	  "contacts" : [
 			{ "location" : "Malta, EU" },
 			{ "skype" : "" }
 		],
 	  "metrics": null,
 	  "origin" : "Russia",
+    "targetRole" : "Front End Developer",
 	
   /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
   "display" : function(objectBio){
       var formattedHTML = "";
       
+      
+      /* NAME     */
       objectBio.name.length > 2 ? (
         formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]),
         $(".start-page-id-name-small").append(formattedHTML),
@@ -51,18 +80,29 @@ var bio = {
         console.log(formattedHTML)
 				):(
 					console.log("No name specified")
-        )
-      ;
-      // TO CONTINUE WITH TOOLTIPS
+        );
+
+      /* INTRO */   
+      formattedHTML = objectBio["targetRole"] + ':';
+      objectBio["skills"].forEach(function(skill){
+        skill["name"].length > 1 ? (
+          formattedHTML = formattedHTML + (skill["name"])+', '
+        ):(
+          console.log("This skill is not defined")
+        );
+      });
+      formattedHTML = formattedHTML.slice(0,(formattedHTML.length-2));
+      formattedHTML = formattedHTML + ".";
+      $(".start-page-id-intro").append(formattedHTML);
       
+      /* PROFILE PHOTO */      
       formattedHTML = " ";
-      
       objectBio.photoUrlSmall.length > 2 ? (
-       formattedHTML = HTMLbioPicSmall.replace("%data%",objectBio["photoUrlSmall"])
+       formattedHTML = HTMLbioPicSmall.replace("%data%",objectBio["photoUrlSmall"]),
+       formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["photoTooltip"])
 				):(
 					console.log("No small bio photo specified")
-        )
-      ;
+        );
       objectBio.photoUrlLarge.length > 2 ? (
        formattedHTML = formattedHTML + HTMLbioPicLarge.replace("%data%",objectBio["photoUrlLarge"])
 				):(
@@ -79,7 +119,10 @@ var bio = {
         )
       ;
       console.log(formattedHTML);
+      console.log(formattedHTML);
       $(".start-page-id-CVphoto").append(formattedHTML);
+      
+      
   }
 }
 

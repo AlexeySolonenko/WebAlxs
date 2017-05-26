@@ -1,12 +1,15 @@
+
+
 // HEADER RAW
 
 var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1><hr>';
 var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1><hr>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
-var HTMLbioPicSmall = '<picture class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
+var HTMLbioPicSmall = '<picture data-toggle="tooltip" title="%data-tooltip%" class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
 var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
 var HTMLbioPicDefault = '<img class="img-responsive img-circle center-block" src="%data%"';
 var HTMLbioPicAlt = ' alt="%data%" ></picture>';
+var HTMLheaderIntro = '<span>%data%</span>';
 
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
