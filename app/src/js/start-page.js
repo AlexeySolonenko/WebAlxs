@@ -24,6 +24,10 @@ function displayWork(){
 		
 	});
 }
+displayWork();
+bio.display(bio);
+portfolio.displayShort(portfolio);
+bio.displayCommits(bio);
 
 $(document).ready( function(){ 
 /*
@@ -37,8 +41,11 @@ $(document).ready( function(){
 */  
   $(".start-page-portfolio-short-minus").css('display','none'),
   $(".start-page-portfolio-short-plus").css('display','inline')
+  $(".start-page-commitsBio-minus").css('display','none'),
+  $(".start-page-commitsBio-plus").css('display','inline')
 });
 
+// short portfolio collapsable 
 $(".start-page-portfolio-short").click( function(){ 
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
    $(".start-page-portfolio-short-minus").css('display','none'),
@@ -46,5 +53,15 @@ $(".start-page-portfolio-short").click( function(){
   ) : (
    $(".start-page-portfolio-short-minus").css('display','inline'),
    $(".start-page-portfolio-short-plus").css('display','none')
+  ); 
+});
+// bio commits collapsable
+$(".start-page-commitsBioShort").click( function(){ 
+  $(".start-page-commitsBioShort-collapse").is(':visible') ? (
+   $(".start-page-commitsBio-minus").css('display','none'),
+   $(".start-page-commitsBio-plus").css('display','inline')
+  ) : (
+   $(".start-page-commitsBio-minus").css('display','inline'),
+   $(".start-page-commitsBio-plus").css('display','none')
   ); 
 });

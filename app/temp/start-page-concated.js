@@ -1,3 +1,4 @@
+
 /* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
 /* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
 /* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
@@ -12,45 +13,20 @@ var bio = {
 	"name" : "Alexey Solonenko",
 	"skills" : 
 	  [
-		{ 
-      "name" : "HTML",
-			"level" : "+"
-		},
-		
-		{
-			"name" : "JS",
-			"level" : "+"			
-		},
-
-		{
-			"name" : "CSS",
-			"level" : "++"			
-		},
-    {
-      "name" : "Git",
-      "level" : ""
-    },
-    {
-      "name" : "Grunt",
-      "level" : ""
-    },
-    {
-      "name" : "Responsive",
-      "level" : ""
-    },
-    {
-      "name" : "jQuery",
-      "level" : ""
-    },
-    {
-      "name" : "Bootstrap",
-      "level" : ""
-    },
-    {
-      "name" : "Industrial HMI background",
-      "level" : ""
-    }
+      {"name" : "HTML", "level" : "+"  },
+      {"name" : "JS", "level" : "+"	},
+      {"name" : "CSS", "level" : "++"	},
+      {"name" : "Git", "level" : "" },
+      {"name" : "Grunt", "level" : "" },
+      {"name" : "Responsive", "level" : "" },
+      {"name" : "jQuery", "level" : "" },
+      {"name" : "Bootstrap", "level" : "" },
+      {"name" : "Industrial HMI background", "level" : "" }
 	  ],
+    "commitsBio":[
+      {"title":"bla", "date":"2007","detailShort":"some detail"}
+    ],
+    "commitsBioTitle":"Alexey['commits'].display() - my bio in few words.",
 	  "statement" : "Engineer Transiting to Front-End Web Development",
     "photoUrlSmall" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo-mir.jpg",
 	  "photoUrlLarge" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo.jpg",
@@ -61,10 +37,14 @@ var bio = {
       "Also I am using proven framework media-queries &#13;&#10;"+
       "based tools for older browsers. Grunt automated &#13;&#10; "+
       "processing and optimization.",
-	    "contacts" : [
-			{ "location" : "Malta, EU" },
-			{ "skype" : "" }
-		],
+	  "contacts" : {
+			"country" : "Malta, EU",
+			"skype" : "alexey_solonenko",
+      "mobile" : {'primary':'+35699703115','secondary':'+35699503677'},
+      "email" : ['ot2@bk.ru','tab4@live.com'],
+      "website" : "http://tab4lioz.beget.tech",
+      "city" : "L-Imsida"
+		},
 	  "metrics": null,
 	  "origin" : "Russia",
     "targetRole" : "Front End Developer",
@@ -87,7 +67,15 @@ var bio = {
 				):(
 					console.log("No name specified")
         );
-
+        formattedHTML = "";
+        
+      /* SHORT CONTACT INFO */
+      formattedHTML = objectBio["contacts"]["email"][0] + ', ( ' +
+        objectBio["contacts"]["mobile"]["primary"] + ' )';
+      formattedHTML = HTMLcontactShort.replace("%data%",formattedHTML);
+      $(".start-page-id-intro").prepend(formattedHTML);
+      formattedHTML = "";
+        
       /* INTRO */   
       formattedHTML = objectBio["targetRole"] + ' : ';
       objectBio["skills"].forEach(function(skill){
@@ -127,8 +115,20 @@ var bio = {
       console.log(formattedHTML);
       console.log(formattedHTML);
       $(".start-page-id-CVphoto").append(formattedHTML);
-      
-      
+               
+  },
+  
+  "displayCommits":function(objectBio){
+    // collapsible button text
+    var formattedHTML = "";
+    objectBio["commitsBioTitle"].length > 2 ? (
+      formattedHTML = HTMLcommitsBioCollapseButton.replace("%data%",objectBio["commitsBioTitle"])
+    ):(
+      console.log("Header for collapse commits bio button is not provided") 
+    );
+    $(".start-page-commitsBioShort").append(formattedHTML);
+    formattedHTML = "";
+    
   }
 }
 
@@ -141,23 +141,25 @@ var portfolio = {
   
 /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
 /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
-      
-  "shortStatement" : "Each project has its own motto. There is no single golden rule for all projects.",
+  "collapseHeader" : "  My beginner portfolio. + a real website used by a client!",    
+  "shortStatement" : "I define a motto and a tactics to follow for each project. There is no single golden rule for all projects.&#13;&#10;"+
+  "Discipline and automation first! <a href='https://github.com/AlexeySolonenko/WebsAlxs/tree/startpage' target='_blank'><b>Check my GitHub repo for project tree, Grunt and version control.</b></a> (note an art-direction with a portfolio photo). Since it is a small and academic project, there are no many commits, but version control is a wonderful thing saving time and facilitating collaboration!&#13;&#10;"+
+  "Metrics of this site are shameful yet, but I am hard-headed during my every step to build a way to lightningize it by the time of my graduation project.",
   "portfolio" : [
     {
-      "title" : "Langugage courses promotion site. Joomla. W3schools framework - built-in joomla template.",
+      "title" : "Real-world used promotion website",
       "url" : "http://studysnami.ru/index.php/ru/",
       "desc" : "Real working website promoting studying English in Malta to Russians. English version is under work. I get to like Joomla a lot while working on this website. W3 css theme.",
       "motto": "Better an egg today than a hen tomorrow.",
-      "descShort" : "My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignite to give a Front End a professional try. Thanks W3schools for their amazing work",
+      "descShort" : "Langugage courses promotion website. Joomla. W3schools framework - built-in joomla template. My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignite to give a Front End a professional try. Thanks W3schools for their amazing work.",
       "tooltip": ""
     },
     {
-      "title" : "Current portfolio webiste. Wordpress. Bootstrap. Custom",
+      "title" : "My portfolio webiste. v1.0.1.",
       "url" : "http://tab4lioz.beget.tech/",
       "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
-      "motto": "Do it right is the shortest road.",
-      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.)",
+      "motto": "'Do it right' is the shortest road.",
+      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I continuously developing and improving.)",
       "tooltip": ""
     }
   ],
@@ -166,14 +168,19 @@ var portfolio = {
 /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
   "displayShort" : function(portfolio){
     
-    // short intro statement
+    // collapsible button text
     var formattedHTML = "";
-    portfolio["shortStatement"].length > 2 ? (
-      formattedHTML = HTMLportfolioShortCollapseButton.replace("%data%",portfolio["shortStatement"])
+    portfolio["collapseHeader"].length > 2 ? (
+      formattedHTML = HTMLportfolioShortCollapseButton.replace("%data%",portfolio["collapseHeader"])
     ):(
-      console.log("Short statement is not provided") 
+      console.log("Header for collapse portfolio short button is not provided") 
     );
     $(".start-page-portfolio-short").append(formattedHTML);
+    formattedHTML = "";
+    
+    //short intro statement
+    formattedHTML = HTMLportfolioShortEntryStatement.replace("%data%",portfolio["shortStatement"]);
+    $(".start-page-portfolio-short-collapse").append(formattedHTML);
     formattedHTML = "";
     
     // content
@@ -357,8 +364,9 @@ var projects = {
 
 // HEADER RAW
 
-var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1><hr>';
-var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1><hr>';
+var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1>';
+var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1>';
+var HTMLcontactShort = '<b>%data%</b><hr>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 var HTMLbioPicSmall = '<picture data-toggle="tooltip" title="%data-tooltip%" class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
 var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
@@ -367,14 +375,25 @@ var HTMLbioPicAlt = ' alt="%data%" ></picture>';
 var HTMLheaderIntro = '<span>%data%</span>';
 
 // PORTFOLIO SHORT RAW
-var HTMLportfolioShortCollapseButton = '<span class=" panel  ">%data%</span>';
+var HTMLportfolioShortCollapseButton = '<div class="panel cfa-button"><b>'+
+    '<span class="start-page-portfolio-short-plus glyphicon glyphicon-play"></span>'+
+    '<span class="start-page-portfolio-short-minus glyphicon glyphicon-triangle-bottom"></span>'+
+    '%data%'+
+    '</b></div>';
+var HTMLportfolioShortEntryStatement = '<p> class="text-danger">%data%</p>';
 var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">%data%</div>';
-var HTMLportfolioShortEntryTitleUrl = '<div class="row"><h3><a href="%data%">';
-var HTMLportfolioShortEntryTitle ='%data%</a></h3></div>';
-var HTMLportfolioShortEntryMotto ='<div class="row"><span>motto: </span>%data%</div>';
+var HTMLportfolioShortEntryTitleUrl = '<div class="row"><h4><a href="%data%" target="_blank">';
+var HTMLportfolioShortEntryTitle ='%data%</a></h4></div>';
+var HTMLportfolioShortEntryMotto ='<div class="row"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
 var HTMLportfolioShortEntryDescShort ='<div class="row"><span><b>About: </b></span>%data%</div>';
 
 
+// COMMITS OF BIO
+var HTMLcommitsBioCollapseButton = '<div class="panel cfa-button"><b>'+
+    '<span class="start-page-commitsBio-plus glyphicon glyphicon-play"></span>'+
+    '<span class="start-page-commitsBio-minus glyphicon glyphicon-triangle-bottom"></span>'+
+    '%data%'+
+    '</b></div>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -444,6 +463,10 @@ function displayWork(){
 		
 	});
 }
+displayWork();
+bio.display(bio);
+portfolio.displayShort(portfolio);
+bio.displayCommits(bio);
 
 $(document).ready( function(){ 
 /*
@@ -457,8 +480,11 @@ $(document).ready( function(){
 */  
   $(".start-page-portfolio-short-minus").css('display','none'),
   $(".start-page-portfolio-short-plus").css('display','inline')
+  $(".start-page-commitsBio-minus").css('display','none'),
+  $(".start-page-commitsBio-plus").css('display','inline')
 });
 
+// short portfolio collapsable 
 $(".start-page-portfolio-short").click( function(){ 
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
    $(".start-page-portfolio-short-minus").css('display','none'),
@@ -466,5 +492,15 @@ $(".start-page-portfolio-short").click( function(){
   ) : (
    $(".start-page-portfolio-short-minus").css('display','inline'),
    $(".start-page-portfolio-short-plus").css('display','none')
+  ); 
+});
+// bio commits collapsable
+$(".start-page-commitsBioShort").click( function(){ 
+  $(".start-page-commitsBioShort-collapse").is(':visible') ? (
+   $(".start-page-commitsBio-minus").css('display','none'),
+   $(".start-page-commitsBio-plus").css('display','inline')
+  ) : (
+   $(".start-page-commitsBio-minus").css('display','inline'),
+   $(".start-page-commitsBio-plus").css('display','none')
   ); 
 });

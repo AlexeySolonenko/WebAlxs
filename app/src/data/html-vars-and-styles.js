@@ -2,8 +2,9 @@
 
 // HEADER RAW
 
-var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1><hr>';
-var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1><hr>';
+var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1>';
+var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1>';
+var HTMLcontactShort = '<b>%data%</b><hr>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 var HTMLbioPicSmall = '<picture data-toggle="tooltip" title="%data-tooltip%" class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
 var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
@@ -12,14 +13,25 @@ var HTMLbioPicAlt = ' alt="%data%" ></picture>';
 var HTMLheaderIntro = '<span>%data%</span>';
 
 // PORTFOLIO SHORT RAW
-var HTMLportfolioShortCollapseButton = '<span class=" panel  ">%data%</span>';
+var HTMLportfolioShortCollapseButton = '<div class="panel cfa-button"><b>'+
+    '<span class="start-page-portfolio-short-plus glyphicon glyphicon-play"></span>'+
+    '<span class="start-page-portfolio-short-minus glyphicon glyphicon-triangle-bottom"></span>'+
+    '%data%'+
+    '</b></div>';
+var HTMLportfolioShortEntryStatement = '<p> class="text-danger">%data%</p>';
 var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">%data%</div>';
-var HTMLportfolioShortEntryTitleUrl = '<div class="row"><h3><a href="%data%">';
-var HTMLportfolioShortEntryTitle ='%data%</a></h3></div>';
-var HTMLportfolioShortEntryMotto ='<div class="row"><span>motto: </span>%data%</div>';
+var HTMLportfolioShortEntryTitleUrl = '<div class="row"><h4><a href="%data%" target="_blank">';
+var HTMLportfolioShortEntryTitle ='%data%</a></h4></div>';
+var HTMLportfolioShortEntryMotto ='<div class="row"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
 var HTMLportfolioShortEntryDescShort ='<div class="row"><span><b>About: </b></span>%data%</div>';
 
 
+// COMMITS OF BIO
+var HTMLcommitsBioCollapseButton = '<div class="panel cfa-button"><b>'+
+    '<span class="start-page-commitsBio-plus glyphicon glyphicon-play"></span>'+
+    '<span class="start-page-commitsBio-minus glyphicon glyphicon-triangle-bottom"></span>'+
+    '%data%'+
+    '</b></div>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
