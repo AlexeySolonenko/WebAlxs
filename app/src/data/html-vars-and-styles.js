@@ -11,6 +11,15 @@ var HTMLbioPicDefault = '<img class="img-responsive img-circle center-block" src
 var HTMLbioPicAlt = ' alt="%data%" ></picture>';
 var HTMLheaderIntro = '<span>%data%</span>';
 
+// PORTFOLIO SHORT RAW
+var HTMLportfolioShortCollapseButton = '<span class=" panel  ">%data%</span>';
+var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">%data%</div>';
+var HTMLportfolioShortEntryTitleUrl = '<div class="row"><h3><a href="%data%">';
+var HTMLportfolioShortEntryTitle ='%data%</a></h3></div>';
+var HTMLportfolioShortEntryMotto ='<div class="row"><span>motto: </span>%data%</div>';
+var HTMLportfolioShortEntryDescShort ='<div class="row"><span><b>About: </b></span>%data%</div>';
+
+
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';

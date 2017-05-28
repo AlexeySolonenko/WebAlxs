@@ -7,6 +7,7 @@
 var bio = {
   
   /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+  /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   
 	"name" : "Alexey Solonenko",
 	"skills" : 
@@ -42,7 +43,11 @@ var bio = {
       "level" : ""
     },
     {
-      "name" : "",
+      "name" : "Bootstrap",
+      "level" : ""
+    },
+    {
+      "name" : "Industrial HMI background",
       "level" : ""
     }
 	  ],
@@ -52,11 +57,11 @@ var bio = {
     "photoUrlAlt" :"Profile photo. Baltic grey haired male around 30. Medium weight. 190 cm or 6.23 feet. Fragile build. Checkered shirt. Black and white photo. ",
     "photoTooltip" :
       "Responsive images using art direction and srcset.&#13;&#10;"+
-      "Zoom (if your browser supports) or use dev tools to test.&#13;&#10;"+
+      "Change window size (if your browser supports) or use dev tools to test.&#13;&#10;"+
       "Also I am using proven framework media-queries &#13;&#10;"+
       "based tools for older browsers. Grunt automated &#13;&#10; "+
       "processing and optimization.",
-	  "contacts" : [
+	    "contacts" : [
 			{ "location" : "Malta, EU" },
 			{ "skype" : "" }
 		],
@@ -65,6 +70,7 @@ var bio = {
     "targetRole" : "Front End Developer",
 	
   /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+  
   "display" : function(objectBio){
       var formattedHTML = "";
       
@@ -83,7 +89,7 @@ var bio = {
         );
 
       /* INTRO */   
-      formattedHTML = objectBio["targetRole"] + ':';
+      formattedHTML = objectBio["targetRole"] + ' : ';
       objectBio["skills"].forEach(function(skill){
         skill["name"].length > 1 ? (
           formattedHTML = formattedHTML + (skill["name"])+', '
@@ -124,6 +130,67 @@ var bio = {
       
       
   }
+}
+
+
+/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
+/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
+/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
+
+var portfolio = {
+  
+/* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+/* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+      
+  "shortStatement" : "Each project has its own motto. There is no single golden rule for all projects.",
+  "portfolio" : [
+    {
+      "title" : "Langugage courses promotion site. Joomla. W3schools framework - built-in joomla template.",
+      "url" : "http://studysnami.ru/index.php/ru/",
+      "desc" : "Real working website promoting studying English in Malta to Russians. English version is under work. I get to like Joomla a lot while working on this website. W3 css theme.",
+      "motto": "Better an egg today than a hen tomorrow.",
+      "descShort" : "My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignite to give a Front End a professional try. Thanks W3schools for their amazing work",
+      "tooltip": ""
+    },
+    {
+      "title" : "Current portfolio webiste. Wordpress. Bootstrap. Custom",
+      "url" : "http://tab4lioz.beget.tech/",
+      "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
+      "motto": "Do it right is the shortest road.",
+      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.)",
+      "tooltip": ""
+    }
+  ],
+
+/* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+/* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+  "displayShort" : function(portfolio){
+    
+    // short intro statement
+    var formattedHTML = "";
+    portfolio["shortStatement"].length > 2 ? (
+      formattedHTML = HTMLportfolioShortCollapseButton.replace("%data%",portfolio["shortStatement"])
+    ):(
+      console.log("Short statement is not provided") 
+    );
+    $(".start-page-portfolio-short").append(formattedHTML);
+    formattedHTML = "";
+    
+    // content
+    portfolio["portfolio"].forEach(function(localItem){
+      formattedHTML =  HTMLportfolioShortEntryTitleUrl.replace("%data%",localItem["url"])+
+        HTMLportfolioShortEntryTitle.replace("%data%",localItem["title"]) +
+        HTMLportfolioShortEntryMotto.replace("%data%", localItem["motto"]) +
+        HTMLportfolioShortEntryDescShort.replace("%data%",localItem["descShort"]);
+      formattedHTML = HTMLportfolioShortEntryBox.replace("%data%",formattedHTML);
+      $(".start-page-portfolio-short-collapse").append(formattedHTML);
+      formattedHTML = "";      
+    }); 
+    
+    
+  }
+    
+  
 }
 
 

@@ -60,8 +60,14 @@ CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
 CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
 
 */
+
+
+
 .start-page-id-CVphoto, .start-page-id-name-small,
 .start-page-id-name-big, .start-page-id-intro,
+.start-page-portfolio-short, .start-page-portfolio-short-collapse,
+.collapsed01,
+.start-page-portfolio-short-plus, .short-page-portfolio-short-minus,
 .start-page-id-contacts, .start-page-id-header,
  {
   
