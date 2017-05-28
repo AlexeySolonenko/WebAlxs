@@ -10,7 +10,7 @@ var HTMLbioPicSmall = '<picture data-toggle="tooltip" title="%data-tooltip%" cla
 var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
 var HTMLbioPicDefault = '<img class="img-responsive img-circle center-block" src="%data%"';
 var HTMLbioPicAlt = ' alt="%data%" ></picture>';
-var HTMLheaderIntro = '<span>%data%</span>';
+var HTMLheaderIntro = '<span><b class="text-justify">%data%</b></span>';
 
 // PORTFOLIO SHORT RAW
 var HTMLportfolioShortCollapseButton = '<div class="panel cfa-button"><b>'+
@@ -18,12 +18,12 @@ var HTMLportfolioShortCollapseButton = '<div class="panel cfa-button"><b>'+
     '<span class="start-page-portfolio-short-minus glyphicon glyphicon-triangle-bottom"></span>'+
     '%data%'+
     '</b></div>';
-var HTMLportfolioShortEntryStatement = '<p> class="text-danger">%data%</p>';
+var HTMLportfolioShortEntryStatement = '<p class="text-danger text-justify col-xs-12">%data%</p>';
 var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">%data%</div>';
-var HTMLportfolioShortEntryTitleUrl = '<div class="row"><h4><a href="%data%" target="_blank">';
+var HTMLportfolioShortEntryTitleUrl = '<div class="text-justify"><h4><a href="%data%" target="_blank">';
 var HTMLportfolioShortEntryTitle ='%data%</a></h4></div>';
-var HTMLportfolioShortEntryMotto ='<div class="row"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
-var HTMLportfolioShortEntryDescShort ='<div class="row"><span><b>About: </b></span>%data%</div>';
+var HTMLportfolioShortEntryMotto ='<div class="text-justify"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
+var HTMLportfolioShortEntryDescShort ='<div class="text-justify"><span><b>About: </b></span>%data%</div>';
 
 
 // COMMITS OF BIO
@@ -32,6 +32,11 @@ var HTMLcommitsBioCollapseButton = '<div class="panel cfa-button"><b>'+
     '<span class="start-page-commitsBio-minus glyphicon glyphicon-triangle-bottom"></span>'+
     '%data%'+
     '</b></div>';
+var HTMLcommitsBioTableCore='<table class="table table-bordered table-striped"><tr> <th>Time</th> <th>Title</th> <th>Comment</th></tr>%data%</table>';
+var HTMLcommitsBioTableEntry='<tr> <td>%data-time%</td> <td>%data-title%</td> <td>%data-comment%</td></tr>';
+
+
+
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';

@@ -24,9 +24,18 @@ var bio = {
       {"name" : "Industrial HMI background", "level" : "" }
 	  ],
     "commitsBio":[
-      {"title":"bla", "date":"2007","detailShort":"some detail"}
+      {"time":"2017", "title":"fix: Start Front End Development Course","comment":"Started my course in March/April. Welcome to my portfolio website! )"},
+      {"time":"2017", "title":"refactor: Make first working website.","comment":"Made first working website for a real client. Got surprised by result and feedback. Interrogated IT acquaintances and decided to give a try to enter IT field."},
+      {"time":"2015", "title":"test: Move to Malta","comment":"Oil&gas collapse laid us off, but we ended happily up in Malta."},
+      {"time":"2015", "title":"docs: Oil industry fall-down.","comment":"In 4.5 years earend two promotions, get employed by a Forbes super-major, spent 65% of time away from home on business trips. Still got laid off together with other thousands."},
+      {"time":"<b>2012 10 27</b>", "title":"<b>BEST: MARRIED LIDDY</b>","comment":"<b>Till today is second to init my achievement ! )</b>"},      
+      {"time":"2011", "title":"feat: Join oil&gas industry","comment":"Started oil&gas career at an international project."},
+      {"time":"2009", "title":"test: Construction and project support","comment":"Joined a Syrian-led ambitious start-up within commercial construction"},
+      {"time":"2007", "title":"style:Trimmed degree with a new haircut","comment":"Graduated as Industrial Automation Engineer. Civil-trained reserve (operations support) army officer. Landed my first electronics technician job(s)."},
+      {"time":"2002", "title":"fix: Prepare for uni. Trim, feed, groom, train, and ^fix","comment":"First significant training and attempts in branching."},
+      {"time":"1985", "title":"init","comment":"Parents made the best so far commit."}
     ],
-    "commitsBioTitle":"Alexey['commits'].display() - my bio in few words.",
+    "commitsBioTitle":"  Alexey['commits'].display() - my bio in few words.",
 	  "statement" : "Engineer Transiting to Front-End Web Development",
     "photoUrlSmall" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo-mir.jpg",
 	  "photoUrlLarge" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo.jpg",
@@ -70,8 +79,8 @@ var bio = {
         formattedHTML = "";
         
       /* SHORT CONTACT INFO */
-      formattedHTML = objectBio["contacts"]["email"][0] + ', ( ' +
-        objectBio["contacts"]["mobile"]["primary"] + ' )';
+      formattedHTML = objectBio["contacts"]["email"][0] + ', ' +
+        objectBio["contacts"]["mobile"]["primary"];
       formattedHTML = HTMLcontactShort.replace("%data%",formattedHTML);
       $(".start-page-id-intro").prepend(formattedHTML);
       formattedHTML = "";
@@ -87,6 +96,7 @@ var bio = {
       });
       formattedHTML = formattedHTML.slice(0,(formattedHTML.length-2));
       formattedHTML = formattedHTML + ".";
+      formattedHTML = HTMLheaderIntro.replace("%data%",formattedHTML);
       $(".start-page-id-intro").append(formattedHTML);
       
       /* PROFILE PHOTO */      
@@ -118,17 +128,29 @@ var bio = {
                
   },
   
-  "displayCommits":function(objectBio){
+  "displayCommits":function(objectBio2){
     // collapsible button text
     var formattedHTML = "";
-    objectBio["commitsBioTitle"].length > 2 ? (
-      formattedHTML = HTMLcommitsBioCollapseButton.replace("%data%",objectBio["commitsBioTitle"])
+    objectBio2["commitsBioTitle"].length > 2 ? (
+      formattedHTML = HTMLcommitsBioCollapseButton.replace("%data%",objectBio2["commitsBioTitle"])
     ):(
       console.log("Header for collapse commits bio button is not provided") 
     );
     $(".start-page-commitsBioShort").append(formattedHTML);
     formattedHTML = "";
     
+    // table 
+    objectBio2["commitsBio"].forEach(function(localItem2){
+      var formattedHTMLraw = "";
+      formattedHTMLraw = HTMLcommitsBioTableEntry.replace("%data-time%",localItem2["time"]);
+      formattedHTMLraw = formattedHTMLraw.replace("%data-title%",localItem2["title"]);
+      formattedHTMLraw = formattedHTMLraw.replace("%data-comment%",localItem2["comment"]);
+      formattedHTML = formattedHTML + formattedHTMLraw;
+    });
+    console.log(formattedHTML);
+    formattedHTML = HTMLcommitsBioTableCore.replace("%data%",formattedHTML);
+    $(".start-page-commitsBioShort-collapse").append(formattedHTML);
+    formattedHTML = "";
   }
 }
 
@@ -143,7 +165,7 @@ var portfolio = {
 /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   "collapseHeader" : "  My beginner portfolio. + a real website used by a client!",    
   "shortStatement" : "I define a motto and a tactics to follow for each project. There is no single golden rule for all projects.&#13;&#10;"+
-  "Discipline and automation first! <a href='https://github.com/AlexeySolonenko/WebsAlxs/tree/startpage' target='_blank'><b>Check my GitHub repo for project tree, Grunt and version control.</b></a> (note an art-direction with a portfolio photo). Since it is a small and academic project, there are no many commits, but version control is a wonderful thing saving time and facilitating collaboration!&#13;&#10;"+
+  "Discipline and automation first! <a href='https://github.com/AlexeySolonenko/WebsAlxs/tree/startpage' target='_blank'><mark><u><b>Check my GitHub repo for project tree, Grunt and version control.</b></u></mark></a> (note an art-direction with a portfolio photo). Since it is a small and academic project, there are no many commits, but version control is a wonderful thing saving time and facilitating collaboration!&#13;&#10;"+
   "Metrics of this site are shameful yet, but I am hard-headed during my every step to build a way to lightningize it by the time of my graduation project.",
   "portfolio" : [
     {
@@ -151,7 +173,7 @@ var portfolio = {
       "url" : "http://studysnami.ru/index.php/ru/",
       "desc" : "Real working website promoting studying English in Malta to Russians. English version is under work. I get to like Joomla a lot while working on this website. W3 css theme.",
       "motto": "Better an egg today than a hen tomorrow.",
-      "descShort" : "Langugage courses promotion website. Joomla. W3schools framework - built-in joomla template. My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignite to give a Front End a professional try. Thanks W3schools for their amazing work.",
+      "descShort" : "Language courses promotion website. Joomla. W3schools framework - built-in joomla template. My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignite to give a Front End a professional try. Thanks W3schools for their amazing work.",
       "tooltip": ""
     },
     {
@@ -372,7 +394,7 @@ var HTMLbioPicSmall = '<picture data-toggle="tooltip" title="%data-tooltip%" cla
 var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
 var HTMLbioPicDefault = '<img class="img-responsive img-circle center-block" src="%data%"';
 var HTMLbioPicAlt = ' alt="%data%" ></picture>';
-var HTMLheaderIntro = '<span>%data%</span>';
+var HTMLheaderIntro = '<span><b class="text-justify">%data%</b></span>';
 
 // PORTFOLIO SHORT RAW
 var HTMLportfolioShortCollapseButton = '<div class="panel cfa-button"><b>'+
@@ -380,12 +402,12 @@ var HTMLportfolioShortCollapseButton = '<div class="panel cfa-button"><b>'+
     '<span class="start-page-portfolio-short-minus glyphicon glyphicon-triangle-bottom"></span>'+
     '%data%'+
     '</b></div>';
-var HTMLportfolioShortEntryStatement = '<p> class="text-danger">%data%</p>';
+var HTMLportfolioShortEntryStatement = '<p class="text-danger text-justify col-xs-12">%data%</p>';
 var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">%data%</div>';
-var HTMLportfolioShortEntryTitleUrl = '<div class="row"><h4><a href="%data%" target="_blank">';
+var HTMLportfolioShortEntryTitleUrl = '<div class="text-justify"><h4><a href="%data%" target="_blank">';
 var HTMLportfolioShortEntryTitle ='%data%</a></h4></div>';
-var HTMLportfolioShortEntryMotto ='<div class="row"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
-var HTMLportfolioShortEntryDescShort ='<div class="row"><span><b>About: </b></span>%data%</div>';
+var HTMLportfolioShortEntryMotto ='<div class="text-justify"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
+var HTMLportfolioShortEntryDescShort ='<div class="text-justify"><span><b>About: </b></span>%data%</div>';
 
 
 // COMMITS OF BIO
@@ -394,6 +416,11 @@ var HTMLcommitsBioCollapseButton = '<div class="panel cfa-button"><b>'+
     '<span class="start-page-commitsBio-minus glyphicon glyphicon-triangle-bottom"></span>'+
     '%data%'+
     '</b></div>';
+var HTMLcommitsBioTableCore='<table class="table table-bordered table-striped"><tr> <th>Time</th> <th>Title</th> <th>Comment</th></tr>%data%</table>';
+var HTMLcommitsBioTableEntry='<tr> <td>%data-time%</td> <td>%data-title%</td> <td>%data-comment%</td></tr>';
+
+
+
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
