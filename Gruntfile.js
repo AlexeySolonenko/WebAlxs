@@ -13,29 +13,85 @@ module.exports = function(grunt) {
     ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     
+    /*
+     *
+     *    TASKS ACTUALLY USED FOR
+     *    PORTFOLIO WEBSITE
+     *
+    */
+    
+    
+    //
+    // CONCAT CONCAT CONCAT
     concat: {
       options: {
-        banner: '<%= banner %>',
-        stripBanners: true,
+        // banner: '<%= banner %>',
+        // stripBanners: true,
       }
       ,basic:{
         src: ['lib/<%= pkg.name %>.js','lib/*.js'],
         dest: 'dist/<%= pkg.name %>.js', 
       }
-      ,extras:{
-        src: '*.js',
-        dest: 'img/sososo.js',
+      ,startpage:{
+        src: ['app/src/data/*.js','app/src/js/start-page.js'],
+        dest: 'app/temp/start-page-concated.js'
       }
-    }
-    ,uglify: {
+    },
+    
+    //
+    // UGLIFY UGLIFY UGLIFY
+    uglify: {
       options: {
-        banner: '<%= banner %>'
+        // banner: '<%= banner %>'
       },
-      dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
+      startpage: {
+        src: 'app/temp/start-page-concated.js',
+        dest: 'app/dist/js/start-page-min.js'
       },
     },
+    
+    //
+    // HTMLMIN   HTMLMIN  HTMLMIN
+    htmlmin: {                                     // Task
+      startpage: {                                      // Target
+        options: {                                 // Target options
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {                                   // Dictionary of files
+          'app/dist/start-page-min.html': 'app/src/start-page.html'     // 'destination': 'source'
+        }
+      }
+    },
+    
+    //
+    // WATCH WATCH WATCH WATCH WATCH 
+    watch: {
+      gruntfile: {
+        files: '<%= jshint.gruntfile.src %>',
+        tasks: ['jshint:gruntfile']
+      },
+      lib: {
+        files: '<%= jshint.lib.src %>',
+        tasks: ['jshint:lib', 'nodeunit']
+      },
+      test: {
+        files: '<%= jshint.test.src %>',
+        tasks: ['jshint:test', 'nodeunit']
+      },
+      startpage: {
+        files: ['app/src/start-page.html','app/src/js/start-page.js','app/src/data/*.js'],
+        tasks: ['concat:startpage','htmlmin:startpage','uglify:startpage']
+      }
+    },
+    
+    /*
+     *
+     *    TASKS UNDER DEVELOPMENT
+     *    
+     *
+    */
+    
     nodeunit: {
       files: ['test/**/*_test.js']
     },
@@ -56,24 +112,12 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
     },
-    watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
-      },
-      lib: {
-        files: '<%= jshint.lib.src %>',
-        tasks: ['jshint:lib', 'nodeunit']
-      },
-      test: {
-        files: '<%= jshint.test.src %>',
-        tasks: ['jshint:test', 'nodeunit']
-      },
-    }
+    
+
      /* Clear out the images directory if it exists   */
-    ,clean: {
+    clean: {
       dev: {
-        src: ['images'],
+        src: ['app/src/img'],
       },
     },
 
@@ -81,22 +125,31 @@ module.exports = function(grunt) {
     mkdir: {
       dev: {
         options: {
-          create: ['images']
+          create: ['app/src/img']
         },
       },
     },
 
     /* Copy the "fixed" images that don't go through processing into the images/directory */
     copy: {
-      dev: {
+      trivia: {
         files: [{
           expand: true,
-          src: 'images_src/fixed/*.{gif,jpg,png}',
-          dest: 'images/'
+          src: 'app/src/main-menu-links.html',
+          //images_src/fixed/*.{gif,jpg,png}',
+          dest: 'app/dist/'
         }]
       },
-    }
-    ,responsive_images:{
+    },
+    
+    /*
+      *
+      *
+      *   responsive images are under test - 
+      *  I used them for other sites and copied here
+      *  for the time being
+    */
+    responsive_images:{
       //options:{
         //engine:'im',
       //}
@@ -174,29 +227,31 @@ module.exports = function(grunt) {
       }
     },
     
-      pagespeed: {
+    pagespeed: {
+      options: {
+        nokey: true,
+        url: "https://developers.google.com"
+      },
+      prod: {
         options: {
-          nokey: true,
-          url: "https://developers.google.com"
-        },
-        prod: {
-          options: {
-            //url: "https://developers.google.com/speed/docs/insights/v1/getting_started",
-            url:"http://studysnami.ru/index.php/ru/",
-            locale: "en_GB",
-            strategy: "desktop",
-            threshold: 1
-          }
-        },
-        paths: {
-          options: {
-            paths: ["/speed/docs/insights/v1/getting_started", "/speed/docs/about"],
-            locale: "en_GB",
-            strategy: "desktop",
-            threshold: 80
-          }
+          //url: "https://developers.google.com/speed/docs/insights/v1/getting_started",
+          url:"http://studysnami.ru/index.php/ru/",
+          locale: "en_GB",
+          strategy: "desktop",
+          threshold: 1
+        }
+      },
+      paths: {
+        options: {
+          paths: ["/speed/docs/insights/v1/getting_started", "/speed/docs/about"],
+          locale: "en_GB",
+          strategy: "desktop",
+          threshold: 80
         }
       }
+    }
+    
+
   });
   
   // These plugins provide necessary tasks.
@@ -210,6 +265,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-mkdir');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   
   // Default task.
   grunt.registerTask('default', ['jshint', 'nodeunit', 'concat', 'uglify']);
