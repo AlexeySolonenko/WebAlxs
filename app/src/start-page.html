@@ -1,10 +1,53 @@
+<!-- to do - 1) try to replace data in the headers as for each page
+2) - or first, put contacts somewhere, near the front end dev ?  -->
+
 <div class="row start-page-id-header">
- <div class="start-page-id-name-small col-xs-8 col-sm-push-4 hidden-sm hidden-md "></div>
-  <div class="start-page-id-name-big col-xs-8 col-sm-push-4 hidden-xs hidden-lg"></div>
- <div class="start-page-id-CVphoto col-xs-4 col-sm-pull-8"></div>
+  
+  <!-- bio.display(bio); shows data inside this row -->
+  <!-- name and intro text - two different divs for for responsiveness -->
+  <div class="col-xs-8 col-sm-push-4 hidden-sm hidden-md ">
+    <div class="row">
+      <div class="start-page-id-name-small col-xs-12"><!-- Name with tooltip appends here --></div>
+      <div class="start-page-id-intro col-xs-12"></div>
+    </div>
+  </div>
+  
+  <div class="col-xs-8 col-sm-push-4 hidden-xs hidden-lg">
+    <div class="row">
+      <div class="start-page-id-name-big col-xs-12"><!-- Name with tooltip appends here --></div>
+      <div class="start-page-id-intro col-xs-12"></div>
+    </div>
+  </div>
+  <div class="start-page-id-CVphoto col-xs-4 col-sm-pull-8"></div>
 </div>
 
-<!-- <script src="http://tab4lioz.beget.tech/wp-content/uploads/lib/js/jQuery.js"></script> -->
+<!-- TO DO: add div that appears only on big screen with some extra info or animation 
+alternatively same content of this div appears only at the end of the page -->
+<!-- portfolio.displayShort(); shows the below -->
+<!-- overview of the portfolio and link to main projects -->
+
+
+<!-- later on to add JS fiddle to limit the height of a paragraph in number of lines 
+adding also a more button  -->
+<!-- MAKE IT AS ACCORDEON  !!! IMPORTANT - THROUGH A PANEL GROUP! 
+SO THAT ONLY ONE ACCORDION AT A ATIME CAN BE OPENED!  OR MAKE TWO - TO 
+SHOW THE DIFFERENCE-->
+
+<!-- ADD A SECTOIN ON THE STRUCTURE OF THE CURRENT PAGE -->
+
+<br>
+<div class="row start-page-portfolio-short" data-toggle="collapse" data-target=".start-page-portfolio-short-collapse">
+<span class="start-page-portfolio-short-plus"><b>+</b></span>
+<span class="start-page-portfolio-short-minus"><b>-</b></span>
+</div>
+
+<div class="row collapse start-page-portfolio-short-collapse">
+
+    <!-- this row is filled with default intro paragraph followed by the list of
+     projects and their mottos or short descrp. all have same formatting and fill 
+     up the bootstrap grid automatically   -->
+</div>
+
 <script src="http://tab4lioz.beget.tech/wp-content/uploads/lib/js/jquery-3.2.1.js"></script>
 
 <script src="http://tab4lioz.beget.tech/wp-content/uploads/src/data/html-vars-and-styles.js"></script>
@@ -14,6 +57,11 @@
 <!-- COMMIT MARK - 22 MAY 12:42 -->
 <!-- changes to file to force commit -->
 
+
+
 displayWork();
 bio.display(bio);
+portfolio.displayShort(portfolio);
+// $("#start-page-portfolio-short-collapse").on("shown.bs.collapse",function(){
+
 </script>

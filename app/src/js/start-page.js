@@ -24,3 +24,27 @@ function displayWork(){
 		
 	});
 }
+
+$(document).ready( function(){ 
+/*
+  $(".start-page-portfolio-short-collapse").is(':visible') ? (
+   $(".start-page-portfolio-short-minus").css('display','none'),
+   $(".start-page-portfolio-short-plus").css('display','inline')
+  ) : (
+   $(".start-page-portfolio-short-minus").css('display','inline'),
+   $(".start-page-portfolio-short-plus").css('display','none')
+  );
+*/  
+  $(".start-page-portfolio-short-minus").css('display','none'),
+  $(".start-page-portfolio-short-plus").css('display','inline')
+});
+
+$(".start-page-portfolio-short").click( function(){ 
+  $(".start-page-portfolio-short-collapse").is(':visible') ? (
+   $(".start-page-portfolio-short-minus").css('display','none'),
+   $(".start-page-portfolio-short-plus").css('display','inline')
+  ) : (
+   $(".start-page-portfolio-short-minus").css('display','inline'),
+   $(".start-page-portfolio-short-plus").css('display','none')
+  ); 
+});

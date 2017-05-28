@@ -1,12 +1,24 @@
+
+
 // HEADER RAW
 
 var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1><hr>';
 var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1><hr>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
-var HTMLbioPicSmall = '<picture class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
+var HTMLbioPicSmall = '<picture data-toggle="tooltip" title="%data-tooltip%" class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
 var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
 var HTMLbioPicDefault = '<img class="img-responsive img-circle center-block" src="%data%"';
 var HTMLbioPicAlt = ' alt="%data%" ></picture>';
+var HTMLheaderIntro = '<span>%data%</span>';
+
+// PORTFOLIO SHORT RAW
+var HTMLportfolioShortCollapseButton = '<span class=" panel  ">%data%</span>';
+var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">%data%</div>';
+var HTMLportfolioShortEntryTitleUrl = '<div class="row"><h3><a href="%data%">';
+var HTMLportfolioShortEntryTitle ='%data%</a></h3></div>';
+var HTMLportfolioShortEntryMotto ='<div class="row"><span>motto: </span>%data%</div>';
+var HTMLportfolioShortEntryDescShort ='<div class="row"><span><b>About: </b></span>%data%</div>';
+
 
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';

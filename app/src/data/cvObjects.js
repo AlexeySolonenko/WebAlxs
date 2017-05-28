@@ -7,12 +7,13 @@
 var bio = {
   
   /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+  /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   
 	"name" : "Alexey Solonenko",
 	"skills" : 
 	  [
-		{
-			"name" : "HTML",
+		{ 
+      "name" : "HTML",
 			"level" : "+"
 		},
 		
@@ -24,23 +25,57 @@ var bio = {
 		{
 			"name" : "CSS",
 			"level" : "++"			
-		}
+		},
+    {
+      "name" : "Git",
+      "level" : ""
+    },
+    {
+      "name" : "Grunt",
+      "level" : ""
+    },
+    {
+      "name" : "Responsive",
+      "level" : ""
+    },
+    {
+      "name" : "jQuery",
+      "level" : ""
+    },
+    {
+      "name" : "Bootstrap",
+      "level" : ""
+    },
+    {
+      "name" : "Industrial HMI background",
+      "level" : ""
+    }
 	  ],
 	  "statement" : "Engineer Transiting to Front-End Web Development",
     "photoUrlSmall" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo-mir.jpg",
 	  "photoUrlLarge" : "http://tab4lioz.beget.tech/wp-content/uploads/src/img/Alexey-Solonenko-Photo.jpg",
     "photoUrlAlt" :"Profile photo. Baltic grey haired male around 30. Medium weight. 190 cm or 6.23 feet. Fragile build. Checkered shirt. Black and white photo. ",
-	  "contacts" : [
+    "photoTooltip" :
+      "Responsive images using art direction and srcset.&#13;&#10;"+
+      "Change window size (if your browser supports) or use dev tools to test.&#13;&#10;"+
+      "Also I am using proven framework media-queries &#13;&#10;"+
+      "based tools for older browsers. Grunt automated &#13;&#10; "+
+      "processing and optimization.",
+	    "contacts" : [
 			{ "location" : "Malta, EU" },
 			{ "skype" : "" }
 		],
 	  "metrics": null,
 	  "origin" : "Russia",
+    "targetRole" : "Front End Developer",
 	
   /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+  
   "display" : function(objectBio){
       var formattedHTML = "";
       
+      
+      /* NAME     */
       objectBio.name.length > 2 ? (
         formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]),
         $(".start-page-id-name-small").append(formattedHTML),
@@ -51,18 +86,29 @@ var bio = {
         console.log(formattedHTML)
 				):(
 					console.log("No name specified")
-        )
-      ;
-      // TO CONTINUE WITH TOOLTIPS
+        );
+
+      /* INTRO */   
+      formattedHTML = objectBio["targetRole"] + ' : ';
+      objectBio["skills"].forEach(function(skill){
+        skill["name"].length > 1 ? (
+          formattedHTML = formattedHTML + (skill["name"])+', '
+        ):(
+          console.log("This skill is not defined")
+        );
+      });
+      formattedHTML = formattedHTML.slice(0,(formattedHTML.length-2));
+      formattedHTML = formattedHTML + ".";
+      $(".start-page-id-intro").append(formattedHTML);
       
+      /* PROFILE PHOTO */      
       formattedHTML = " ";
-      
       objectBio.photoUrlSmall.length > 2 ? (
-       formattedHTML = HTMLbioPicSmall.replace("%data%",objectBio["photoUrlSmall"])
+       formattedHTML = HTMLbioPicSmall.replace("%data%",objectBio["photoUrlSmall"]),
+       formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["photoTooltip"])
 				):(
 					console.log("No small bio photo specified")
-        )
-      ;
+        );
       objectBio.photoUrlLarge.length > 2 ? (
        formattedHTML = formattedHTML + HTMLbioPicLarge.replace("%data%",objectBio["photoUrlLarge"])
 				):(
@@ -79,8 +125,72 @@ var bio = {
         )
       ;
       console.log(formattedHTML);
+      console.log(formattedHTML);
       $(".start-page-id-CVphoto").append(formattedHTML);
+      
+      
   }
+}
+
+
+/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
+/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
+/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
+
+var portfolio = {
+  
+/* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+/* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+      
+  "shortStatement" : "Each project has its own motto. There is no single golden rule for all projects.",
+  "portfolio" : [
+    {
+      "title" : "Langugage courses promotion site. Joomla. W3schools framework - built-in joomla template.",
+      "url" : "http://studysnami.ru/index.php/ru/",
+      "desc" : "Real working website promoting studying English in Malta to Russians. English version is under work. I get to like Joomla a lot while working on this website. W3 css theme.",
+      "motto": "Better an egg today than a hen tomorrow.",
+      "descShort" : "My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignite to give a Front End a professional try. Thanks W3schools for their amazing work",
+      "tooltip": ""
+    },
+    {
+      "title" : "Current portfolio webiste. Wordpress. Bootstrap. Custom",
+      "url" : "http://tab4lioz.beget.tech/",
+      "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
+      "motto": "Do it right is the shortest road.",
+      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.)",
+      "tooltip": ""
+    }
+  ],
+
+/* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+/* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+  "displayShort" : function(portfolio){
+    
+    // short intro statement
+    var formattedHTML = "";
+    portfolio["shortStatement"].length > 2 ? (
+      formattedHTML = HTMLportfolioShortCollapseButton.replace("%data%",portfolio["shortStatement"])
+    ):(
+      console.log("Short statement is not provided") 
+    );
+    $(".start-page-portfolio-short").append(formattedHTML);
+    formattedHTML = "";
+    
+    // content
+    portfolio["portfolio"].forEach(function(localItem){
+      formattedHTML =  HTMLportfolioShortEntryTitleUrl.replace("%data%",localItem["url"])+
+        HTMLportfolioShortEntryTitle.replace("%data%",localItem["title"]) +
+        HTMLportfolioShortEntryMotto.replace("%data%", localItem["motto"]) +
+        HTMLportfolioShortEntryDescShort.replace("%data%",localItem["descShort"]);
+      formattedHTML = HTMLportfolioShortEntryBox.replace("%data%",formattedHTML);
+      $(".start-page-portfolio-short-collapse").append(formattedHTML);
+      formattedHTML = "";      
+    }); 
+    
+    
+  }
+    
+  
 }
 
 
