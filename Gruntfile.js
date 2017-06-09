@@ -27,14 +27,18 @@ module.exports = function(grunt) {
       options: {
         // banner: '<%= banner %>',
         // stripBanners: true,
-      }
-      ,basic:{
+      },
+      basic:{
         src: ['lib/<%= pkg.name %>.js','lib/*.js'],
         dest: 'dist/<%= pkg.name %>.js', 
-      }
-      ,startpage:{
+      },
+      startpageJS:{
         src: ['app/src/data/*.js','app/src/js/start-page.js'],
         dest: 'app/temp/start-page-concated.js'
+      },
+      sharedCSS:{
+        src: ['app/src/css/*.css'],
+        dest: 'app/temp/shared-css-concated.css'
       }
     },
     
@@ -46,8 +50,20 @@ module.exports = function(grunt) {
       },
       startpage: {
         src: 'app/temp/start-page-concated.js',
-        dest: 'app/dist/js/start-page-min.js'
+        dest: 'app/test/js/start-page-min.js'
       },
+    },
+    
+    
+    // 
+    // CSSMIN CSSMIN CSSMIN CSSMIN
+    
+    cssmin: {
+      sharedCSS:{
+        files:{
+          'app/test/css/shared-css-min.css':'app/temp/shared-css-concated.css'
+        }
+      }
     },
     
     //
@@ -59,7 +75,7 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: {                                   // Dictionary of files
-          'app/dist/start-page-min.html': 'app/src/start-page.html'     // 'destination': 'source'
+          'app/test/start-page-min.html': 'app/src/start-page.html'     // 'destination': 'source'
         }
       }
     },
@@ -80,8 +96,8 @@ module.exports = function(grunt) {
         tasks: ['jshint:test', 'nodeunit']
       },
       startpage: {
-        files: ['app/src/start-page.html','app/src/js/start-page.js','app/src/data/*.js'],
-        tasks: ['concat:startpage','htmlmin:startpage','uglify:startpage']
+        files: ['app/src/start-page.html','app/src/js/start-page.js','app/src/data/*.js','app/src/css/*.css'],
+        tasks: ['concat:startpageJS','htmlmin:startpage','uglify:startpage','cssmin:sharedCSS']
       }
     },
     
@@ -266,6 +282,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-mkdir');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   
   // Default task.
   grunt.registerTask('default', ['jshint', 'nodeunit', 'concat', 'uglify']);

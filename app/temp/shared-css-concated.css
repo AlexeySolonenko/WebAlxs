@@ -1,0 +1,83 @@
+/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+
+.user_hover_777:hover {
+	color:#777;
+}
+
+.user_focus_777:focus{
+	color:#777;
+}
+
+.entry-title{
+display:none;
+}
+
+#secondary .widget a {
+	color:#636467;
+}
+
+.user_img_w100{
+	max-width:100px
+}
+
+@media screen and (min-width: 1066px){
+	.user_h1_on_more1066px { font-size:3em;}
+}
+
+@media screen and (max-width:767px){
+	.user_row_height_100px{height:100px;overflow:hidden; white-space: nowrap;}
+}
+
+.user_nav_bar{
+  position:absolute;
+  left:0px;
+  right:0px;
+  top:70px;
+  border:1px solid red;
+}
+
+.user_nav_main_menu_overlap_tooltip{
+  margin:-30px;
+  padding:30px;
+  z-index:100;  
+}
+
+.user-test-red-border{
+  border: 1px solid red;
+}
+
+.navbar > .container .navbar-brand{
+  font-size:inherit;
+  margin-bottom:0px;
+}
+
+
+
+/*
+CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
+
+CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
+
+CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
+
+*/
+
+
+
+.start-page-id-CVphoto, .start-page-id-name-small,
+.start-page-id-name-big, .start-page-id-intro,
+.start-page-portfolio-short, .start-page-portfolio-short-collapse,
+.collapsed01, .start-page-commitsBioShort .start-page-commitsBioShort-collapse,
+.start-page-commitsBio-plus, .start-page-commitsBio-minus, 
+.start-page-portfolio-short-plus, .short-page-portfolio-short-minus,
+.start-page-id-contacts, .start-page-id-header,
+ {
+  
+}
+
+
