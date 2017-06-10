@@ -203,7 +203,7 @@ var portfolio = {
       "url" : "",
       "desc" : "I designed and programmed a real-world industrial control system with HMI for control and supervision of a 16000 sq.m. building facilities. HMI includes multiple screen-sets for various user groups, data logging and retrieval, report printing and a bunch of handy automation tools. ",
       "motto": "Smart building starts with a smart interface that can speak to any 'non-smart' user.",
-      "descShort" : "A project page is under development. ",
+      "descShort" : "A project page is under development. HMI is a center point of this project. It provides automation tools for smart energy consumption for maintenance personnel. Supervision and troubleshooting tools for engineering. Intuitive interface for daily rooting operations that is easily handled by all sorts of staff: security, helpers, etc. ",
       "tooltip": ""
     }
   ],
