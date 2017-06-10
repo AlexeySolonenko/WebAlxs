@@ -11,6 +11,7 @@ var bio = {
   /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   
 	"name" : "Alexey Solonenko",
+  "nameTooltip" : "Name tooltip",
 	"skills" : 
 	  [
       {"name" : "HTML", "level" : "+"  },
@@ -67,10 +68,12 @@ var bio = {
       /* NAME     */
       objectBio.name.length > 2 ? (
         formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]),
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
         $(".start-page-id-name-small").append(formattedHTML),
         console.log(formattedHTML),
         formattedHTML = " ",
         formattedHTML = HTMLheaderNameBig.replace("%data%",objectBio["name"]),
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
         $(".start-page-id-name-big").append(formattedHTML),
         console.log(formattedHTML)
 				):(

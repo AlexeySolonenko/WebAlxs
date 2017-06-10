@@ -39,10 +39,11 @@ $(document).ready( function(){
    $(".start-page-portfolio-short-plus").css('display','none')
   );
 */  
-  $(".start-page-portfolio-short-minus").css('display','none'),
-  $(".start-page-portfolio-short-plus").css('display','inline')
-  $(".start-page-commitsBio-minus").css('display','none'),
-  $(".start-page-commitsBio-plus").css('display','inline')
+  $(".start-page-portfolio-short-minus").css('display','inline');
+  $(".start-page-portfolio-short-plus").css('display','none');
+  $(".start-page-commitsBio-minus").css('display','none');
+  $(".start-page-commitsBio-plus").css('display','inline');
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
 // short portfolio collapsable 

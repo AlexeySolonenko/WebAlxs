@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         dest: 'app/temp/start-page-concated.js'
       },
       sharedCSS:{
-        src: ['app/src/css/*.css'],
+        src: 'app/src/css/*.css',
         dest: 'app/temp/shared-css-concated.css'
       }
     },
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
       },
       startpage: {
         files: ['app/src/start-page.html','app/src/js/start-page.js','app/src/data/*.js','app/src/css/*.css'],
-        tasks: ['concat:startpageJS','htmlmin:startpage','uglify:startpage','cssmin:sharedCSS']
+        tasks: ['concat:startpageJS','htmlmin:startpage','uglify:startpage','concat:sharedCSS','cssmin:sharedCSS']
       }
     },
     

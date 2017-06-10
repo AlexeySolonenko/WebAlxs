@@ -47,6 +47,82 @@ display:none;
   z-index:100;  
 }
 
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes user-anim-tooltip-btm01 {
+    0%   {top: 200px;}
+    20%  {top: 100px;}
+    40%  {top: 0px;}
+    60%  {top: 50px;}
+    80%  {top: 25px;}
+    90%  {top: 50px;}
+    100% {top: 0px;}
+}
+
+/* Standard syntax */
+@keyframes user-anim-tooltip-btm01 {
+0% {top: 300px; left: 300px;}
+4% {top: 150px; left: 300px;}
+8% {top: 0px; left: 270px;}
+12% {top: -210px; left: 240px;}
+16% {top: -210px; left: 0px;}
+20% {top: -210px; left: -150px;}
+24% {top: -180px; left: -210px;}
+28% {top: 0px; left: -210px;}
+32% {top: 180px; left: -150px;}
+36% {top: 180px; left: 0px;}
+40% {top: 160px; left: 160px;}
+44% {top: 0px; left: 160px;}
+48% {top: -160px; left: 160px;}
+52% {top: -160px; left: 0px;}
+56% {top: -160px; left: -120px;}
+60% {top: 0px; left: -120px;}
+64% {top: 120px; left: -120px;}
+68% {top: 120px; left: 0px;}
+72% {top: 120px; left: 90px;}
+76% {top: 0px; left: 90px;}
+80% {top: -90px; left: 90px;}
+84% {top: -90px; left: 0px;}
+88% {top: -90px; left: -90px;}
+92% {top: 0px; left: -90px;}
+96% {top: 90px; left: 0px;}
+100% {top: 0px; left: 0px;}
+
+
+
+}
+
+/*
+.user-tooltip-anim-btm01 + .tooltip > .tooltip-inner {
+  position:relative;
+  -webkit-animation: user-anim-tooltip-btm01 1s; 
+  animation: user-anim-tooltip-btm01 1s;
+  background-color:#ffff66;
+  color:#000000;
+}
+
+
+.user-tooltip-anim-btm01 + .tooltip.bottom > .tooltip-arrow {
+  position:relative;
+  animation: user-anim-tooltip-btm01 0.5s;
+  -webkit-animation: user-anim-tooltip-btm01 0.5s; 
+    background-color:#ffff66;
+  color:#000000;
+}
+*/
+
+.tooltip > .tooltip-inner {
+  position:relative;
+  -webkit-animation: user-anim-tooltip-btm01 0.4s; 
+  animation: user-anim-tooltip-btm01 0.4s;
+  background-color:#ffff66;
+  color:#000000;
+  text-align: left;
+}
+
+
+
+
+
 .user-test-red-border{
   border: 1px solid red;
 }

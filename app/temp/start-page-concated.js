@@ -11,6 +11,7 @@ var bio = {
   /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   
 	"name" : "Alexey Solonenko",
+  "nameTooltip" : "Name tooltip",
 	"skills" : 
 	  [
       {"name" : "HTML", "level" : "+"  },
@@ -67,10 +68,12 @@ var bio = {
       /* NAME     */
       objectBio.name.length > 2 ? (
         formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]),
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
         $(".start-page-id-name-small").append(formattedHTML),
         console.log(formattedHTML),
         formattedHTML = " ",
         formattedHTML = HTMLheaderNameBig.replace("%data%",objectBio["name"]),
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
         $(".start-page-id-name-big").append(formattedHTML),
         console.log(formattedHTML)
 				):(
@@ -505,10 +508,11 @@ $(document).ready( function(){
    $(".start-page-portfolio-short-plus").css('display','none')
   );
 */  
-  $(".start-page-portfolio-short-minus").css('display','none'),
-  $(".start-page-portfolio-short-plus").css('display','inline')
-  $(".start-page-commitsBio-minus").css('display','none'),
-  $(".start-page-commitsBio-plus").css('display','inline')
+  $(".start-page-portfolio-short-minus").css('display','inline');
+  $(".start-page-portfolio-short-plus").css('display','none');
+  $(".start-page-commitsBio-minus").css('display','none');
+  $(".start-page-commitsBio-plus").css('display','inline');
+  $('[data-toggle="tooltip"]').tooltip();
 });
 
 // short portfolio collapsable 
