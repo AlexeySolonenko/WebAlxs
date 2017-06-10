@@ -11,15 +11,15 @@ var bio = {
   /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   
 	"name" : "Alexey Solonenko",
-  "nameTooltip" : "I can:<br />"+
-                  "  - build 'responsively': @media queries || Bootstrap-grid.<br />"+
-                  "  - automate with Grunt, play safe with Git.<br />"+
-                  "  - Bootstrap, W3, custom CSS + keep SEO in mind - metadata, keywords.<br />"+
-                  "  - optimize web performance using Grunt plugins, art direction (picture and srcset).<br />"+
-                  "I aspire:<br />"+
-                  "  - to earn a Front End Developer title through good work.<br />"+
-                  "  - make happy with my work my project managers and at least 50 clients.<br />"+
-                  "  - contribute for a better and safer web.<br />",
+  "nameTooltip" : "I can: <br /br> "+
+                  "  - build 'responsively': @media queries || Bootstrap-grid.<br /br> "+
+                  "  - automate with Grunt, play safe with Git.<br /br> "+
+                  "  - Bootstrap, W3, custom CSS + keep SEO in mind - metadata, keywords.<br /br> "+
+                  "  - optimize web performance using Grunt plugins, art direction (picture and srcset).<br /br> "+
+                  "I aspire:<br /br>"+
+                  "  - to earn a Front End Developer title through good work.<br /br> "+
+                  "  - make happy with my work my project managers and at least 50 clients.<br /br> "+
+                  "  - contribute for a better and safer web.<br /br> ",
 	"skills" : 
 	  [
       {"name" : "HTML", "level" : "+"  },
@@ -62,8 +62,8 @@ var bio = {
       "email" : ['ot2@bk.ru','tab4@live.com'],
       "website" : "http://tab4lioz.beget.tech",
       "city" : "L-Imsida",
-      "welcomeTooltip" : "<b><h5><br />      CHECK TOOLTIPS (THERE ARE MANY)     <br />"+
-      "     AND ENJOY YOUR TIME HERE!     <br /></h5></b>"
+      "welcomeTooltip" : "<b><h4><br /br>!      CHECK TOOLTIPS (THERE ARE MANY)     !<br /br>"+
+      "!     AND ENJOY YOUR TIME HERE!     !<br /br></h4></b>"
 		},
 	  "metrics": null,
 	  "origin" : "Russia",
@@ -199,11 +199,11 @@ var portfolio = {
       "tooltip": ""
     },
    {
-      "title" : "My portfolio webiste. v1.0.1.",
-      "url" : "#",
-      "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
-      "motto": "'Do it right' is the shortest road.",
-      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I am continuously developing and improving.",
+      "title" : "Building Management System ",
+      "url" : "",
+      "desc" : "I designed and programmed a real-world industrial control system with HMI for control and supervision of a 16000 sq.m. building facilities. HMI includes multiple screen-sets for various user groups, data logging and retrieval, report printing and a bunch of handy automation tools. ",
+      "motto": "Smart building starts with a smart interface that can speak to any 'non-smart' user.",
+      "descShort" : "A project page is under development. ",
       "tooltip": ""
     }
   ],

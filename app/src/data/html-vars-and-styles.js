@@ -2,9 +2,9 @@
 
 // HEADER RAW
 
-var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" data-html=true '+
-                          'title="%data-tooltip%" data-trigger="manual focus hover" data-placement="auto">%data%</h1>';
-var HTMLheaderNameBig = '<h1 data-toggle="tooltip" data-html=true'+
+var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" data-html="true" '+
+                          'title="%data-tooltip%" data-trigger="manual focus hover" data-placement="auto" >%data%</h1>';
+var HTMLheaderNameBig = '<h1 data-toggle="tooltip" data-html="true" '+
                         'title="%data-tooltip%" data-trigger="manual focus hover" data-placement="auto" class="text-uppercase">%data%</h1>';
 var HTMLcontactShort = '<b data-toggle="tooltip" data-html=true title="%data-tooltip%"'+
                         'data-placement="auto" data-trigger="manual" class="user-welcome-tooltip">%data%</b><hr>';

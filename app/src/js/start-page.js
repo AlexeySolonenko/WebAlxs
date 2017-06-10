@@ -52,18 +52,18 @@ $(document).ready( function(){
       $('.start-page-id-name-small > h1').tooltip("hide");
       $('.start-page-id-name-big > h1').tooltip("hide");
       $('.start-page-id-CVphoto picture').tooltip("show");
-    },1500);
+    },2500);
   setTimeout(function(){
       $('.start-page-id-name-small > h1').tooltip("show");
       $('.start-page-id-name-big > h1').tooltip("show");
       $('.start-page-id-CVphoto picture').tooltip("hide");
-    },2500);
+    },4500);
   setTimeout(function(){
       $('.start-page-id-name-small > h1').tooltip("hide");
       $('.start-page-id-name-big > h1').tooltip("hide");
       $('.start-page-id-CVphoto picture').tooltip("hide");
       $('.user-welcome-tooltip').tooltip("show");
-    },3500);
+    },5500);
   setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("hide");
     },10000);
