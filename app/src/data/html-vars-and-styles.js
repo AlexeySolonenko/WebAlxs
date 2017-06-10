@@ -2,11 +2,16 @@
 
 // HEADER RAW
 
-var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1>';
-var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1>';
-var HTMLcontactShort = '<b>%data%</b><hr>';
+var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" data-html=true '+
+                          'title="%data-tooltip%" data-trigger="manual focus hover" data-placement="auto">%data%</h1>';
+var HTMLheaderNameBig = '<h1 data-toggle="tooltip" data-html=true'+
+                        'title="%data-tooltip%" data-trigger="manual focus hover" data-placement="auto" class="text-uppercase">%data%</h1>';
+var HTMLcontactShort = '<b data-toggle="tooltip" data-html=true title="%data-tooltip%"'+
+                        'data-placement="auto" data-trigger="manual" class="user-welcome-tooltip">%data%</b><hr>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
-var HTMLbioPicSmall = '<picture data-toggle="tooltip" title="%data-tooltip%" class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
+var HTMLbioPicSmall = '<picture data-toggle="tooltip" data-html=true title="%data-tooltip%"'+
+                      ' data-placement="auto" data-trigger="manual focus hover" class="img-responsive'+
+                      ' img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
 var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
 var HTMLbioPicDefault = '<img class="img-responsive img-circle center-block" src="%data%"';
 var HTMLbioPicAlt = ' alt="%data%" ></picture>';

@@ -44,6 +44,29 @@ $(document).ready( function(){
   $(".start-page-commitsBio-minus").css('display','none');
   $(".start-page-commitsBio-plus").css('display','inline');
   $('[data-toggle="tooltip"]').tooltip();
+  setTimeout(function(){
+      $('.start-page-id-name-small > h1').tooltip("show");
+      $('.start-page-id-name-big > h1').tooltip("show");
+    },500);
+  setTimeout(function(){
+      $('.start-page-id-name-small > h1').tooltip("hide");
+      $('.start-page-id-name-big > h1').tooltip("hide");
+      $('.start-page-id-CVphoto picture').tooltip("show");
+    },1500);
+  setTimeout(function(){
+      $('.start-page-id-name-small > h1').tooltip("show");
+      $('.start-page-id-name-big > h1').tooltip("show");
+      $('.start-page-id-CVphoto picture').tooltip("hide");
+    },2500);
+  setTimeout(function(){
+      $('.start-page-id-name-small > h1').tooltip("hide");
+      $('.start-page-id-name-big > h1').tooltip("hide");
+      $('.start-page-id-CVphoto picture').tooltip("hide");
+      $('.user-welcome-tooltip').tooltip("show");
+    },3500);
+  setTimeout(function(){
+      $('.user-welcome-tooltip').tooltip("hide");
+    },10000);
 });
 
 // short portfolio collapsable 

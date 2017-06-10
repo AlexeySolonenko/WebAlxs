@@ -11,7 +11,15 @@ var bio = {
   /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   
 	"name" : "Alexey Solonenko",
-  "nameTooltip" : "Name tooltip",
+  "nameTooltip" : "I can:<br />"+
+                  "  - build 'responsively': @media queries || Bootstrap-grid.<br />"+
+                  "  - automate with Grunt, play safe with Git.<br />"+
+                  "  - Bootstrap, W3, custom CSS + keep SEO in mind - metadata, keywords.<br />"+
+                  "  - optimize web performance using Grunt plugins, art direction (picture and srcset).<br />"+
+                  "I aspire:<br />"+
+                  "  - to earn a Front End Developer title through good work.<br />"+
+                  "  - make happy with my work my project managers and at least 50 clients.<br />"+
+                  "  - contribute for a better and safer web.<br />",
 	"skills" : 
 	  [
       {"name" : "HTML", "level" : "+"  },
@@ -53,7 +61,9 @@ var bio = {
       "mobile" : {'primary':'+35699703115','secondary':'+35699503677'},
       "email" : ['ot2@bk.ru','tab4@live.com'],
       "website" : "http://tab4lioz.beget.tech",
-      "city" : "L-Imsida"
+      "city" : "L-Imsida",
+      "welcomeTooltip" : "<b><h5><br />      CHECK TOOLTIPS (THERE ARE MANY)     <br />"+
+      "     AND ENJOY YOUR TIME HERE!     <br /></h5></b>"
 		},
 	  "metrics": null,
 	  "origin" : "Russia",
@@ -85,6 +95,7 @@ var bio = {
       formattedHTML = objectBio["contacts"]["email"][0] + ', ' +
         objectBio["contacts"]["mobile"]["primary"];
       formattedHTML = HTMLcontactShort.replace("%data%",formattedHTML);
+      formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["contacts"]["welcomeTooltip"]);
       $(".start-page-id-intro").prepend(formattedHTML);
       formattedHTML = "";
         
@@ -176,7 +187,7 @@ var portfolio = {
       "url" : "http://studysnami.ru/index.php/ru/",
       "desc" : "Real working website promoting studying English in Malta to Russians. English version is under work. I get to like Joomla a lot while working on this website. W3 css theme.",
       "motto": "Better an egg today than a hen tomorrow.",
-      "descShort" : "Language courses promotion website. Joomla. W3schools framework - built-in joomla template. My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignite to give a Front End a professional try. Thanks W3schools for their amazing work.",
+      "descShort" : "Language courses promotion website. Joomla. W3schools framework - built-in joomla template. My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignited to give a Front End a professional try. Thanks W3schools for their amazing work.",
       "tooltip": ""
     },
     {
@@ -184,7 +195,15 @@ var portfolio = {
       "url" : "http://tab4lioz.beget.tech/",
       "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
       "motto": "'Do it right' is the shortest road.",
-      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I continuously developing and improving.)",
+      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I am continuously developing and improving.",
+      "tooltip": ""
+    },
+   {
+      "title" : "My portfolio webiste. v1.0.1.",
+      "url" : "#",
+      "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
+      "motto": "'Do it right' is the shortest road.",
+      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I am continuously developing and improving.",
       "tooltip": ""
     }
   ],
@@ -389,11 +408,16 @@ var projects = {
 
 // HEADER RAW
 
-var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom">%data%</h1>';
-var HTMLheaderNameBig = '<h1 data-toggle="tooltip" title="%data-tooltip%" data-placement="bottom" class="text-uppercase">%data%</h1>';
-var HTMLcontactShort = '<b>%data%</b><hr>';
+var HTMLheaderNameSmall = '<h1 data-toggle="tooltip" data-html=true '+
+                          'title="%data-tooltip%" data-trigger="manual focus hover" data-placement="auto">%data%</h1>';
+var HTMLheaderNameBig = '<h1 data-toggle="tooltip" data-html=true'+
+                        'title="%data-tooltip%" data-trigger="manual focus hover" data-placement="auto" class="text-uppercase">%data%</h1>';
+var HTMLcontactShort = '<b data-toggle="tooltip" data-html=true title="%data-tooltip%"'+
+                        'data-placement="auto" data-trigger="manual" class="user-welcome-tooltip">%data%</b><hr>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
-var HTMLbioPicSmall = '<picture data-toggle="tooltip" title="%data-tooltip%" class="img-responsive img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
+var HTMLbioPicSmall = '<picture data-toggle="tooltip" data-html=true title="%data-tooltip%"'+
+                      ' data-placement="auto" data-trigger="manual focus hover" class="img-responsive'+
+                      ' img-circle center-block"><source class="img-responsive img-circle center-block" media="(max-width: 799px)" srcset="%data%">';
 var HTMLbioPicLarge = '<source class="img-responsive img-circle center-block" media="(min-width: 800px)" srcset="%data%">';
 var HTMLbioPicDefault = '<img class="img-responsive img-circle center-block" src="%data%"';
 var HTMLbioPicAlt = ' alt="%data%" ></picture>';
@@ -513,6 +537,29 @@ $(document).ready( function(){
   $(".start-page-commitsBio-minus").css('display','none');
   $(".start-page-commitsBio-plus").css('display','inline');
   $('[data-toggle="tooltip"]').tooltip();
+  setTimeout(function(){
+      $('.start-page-id-name-small > h1').tooltip("show");
+      $('.start-page-id-name-big > h1').tooltip("show");
+    },500);
+  setTimeout(function(){
+      $('.start-page-id-name-small > h1').tooltip("hide");
+      $('.start-page-id-name-big > h1').tooltip("hide");
+      $('.start-page-id-CVphoto picture').tooltip("show");
+    },1500);
+  setTimeout(function(){
+      $('.start-page-id-name-small > h1').tooltip("show");
+      $('.start-page-id-name-big > h1').tooltip("show");
+      $('.start-page-id-CVphoto picture').tooltip("hide");
+    },2500);
+  setTimeout(function(){
+      $('.start-page-id-name-small > h1').tooltip("hide");
+      $('.start-page-id-name-big > h1').tooltip("hide");
+      $('.start-page-id-CVphoto picture').tooltip("hide");
+      $('.user-welcome-tooltip').tooltip("show");
+    },3500);
+  setTimeout(function(){
+      $('.user-welcome-tooltip').tooltip("hide");
+    },10000);
 });
 
 // short portfolio collapsable 
