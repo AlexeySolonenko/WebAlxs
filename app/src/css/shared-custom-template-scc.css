@@ -129,7 +129,18 @@ display:none;
   margin-bottom:0px;
 }
 
+.user-flying-letter{
+  
+  position:relative;
+  left: 0px;
+  top: 0px;
+  transition: transform 4s;
+}
 
+.user-flying-letter-start{
+  position:relative;
+  transform: translate(100px,100px);
+}
 
 /*
 CLASSES USED INSTEAD OF IDs FOR HTML MARKUP

@@ -560,6 +560,8 @@ $(document).ready( function(){
   setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("hide");
     },10000);
+  $('.user-flying-letter').removeClass('user-flying-letter-start');
+  console.log('user-flying-letter');
 });
 
 // short portfolio collapsable 
