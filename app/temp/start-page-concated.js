@@ -1,3 +1,16 @@
+    function spannifyFlying(string){
+      var spannified = "";
+      for(var i=0,j=0;i<string.length;i++){
+        (j>9)&&(j=0);
+        spannified = spannified +
+        '<span class="user-span-flies-left'+j+' user-span-flies-left-start">'+
+        string.charAt(i)+'</span>';
+        j++;
+      };
+      return spannified;
+    }; 
+    
+
 
 /* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
 /* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
@@ -72,40 +85,33 @@ var bio = {
   /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
   
   "display" : function(objectBio){
-    console.log('hello');
-      
-      
+    var formattedHTML = "";
+    var tempString = "";
+    
+    
       /* NAME     */
-      objectBio.name.length > 2 ? (function(){
-        
-        formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]);
-        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]);
-        $(".start-page-id-name-small").append(formattedHTML);
-        console.log(formattedHTML);
-        console.log($(".start-page-id-name-small"));
-        formattedHTML = " ";
-        var tempString = "";
-        for(var i=0, j=0; i < objectBio["name"].length; i++){
-          j++;
-          (j>9)&&(j=0);
-          tempString = tempString + 
-                      '<span class="user-span-flies-left'+j+' user-span-flies-left-start">'+
-                       objectBio["name"].charAt(i)+'</span>';
-          
-        };
-        console.log(tempString);
+      objectBio.name.length > 2 ? (
+       
         /* formattedHTML = HTMLheaderNameBig.replace("%data%",objectBio["name"]);*/
-        formattedHTML = HTMLheaderNameBig.replace("%data%",tempString);
-        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]);
-        $(".start-page-id-name-big").append(formattedHTML);
-        })() :(  
+        formattedHTML = HTMLheaderNameBig.replace("%data%",spannifyFlying(objectBio["name"])),
+        /* formattedHTML = HTMLheaderNameBig.replace("%data%",formattedHTML); */
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
+        $(".start-page-id-name-big").append(formattedHTML),
+        formattedHTML = "",
+        formattedHTML = HTMLheaderNameSmall.replace("%data%",spannifyFlying(objectBio["name"])),
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
+        $(".start-page-id-name-small").append(formattedHTML)
+        ) :(  
 					console.log("No name specified")
         );
-        formattedHTML = "";
+              
+      formattedHTML = " ";
+      tempString = "";
         
       /* SHORT CONTACT INFO */
       formattedHTML = objectBio["contacts"]["email"][0] + ', ' +
         objectBio["contacts"]["mobile"]["primary"];
+      formattedHTML = spannifyFlying(formattedHTML);
       formattedHTML = HTMLcontactShort.replace("%data%",formattedHTML);
       formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["contacts"]["welcomeTooltip"]);
       $(".start-page-id-intro").prepend(formattedHTML);
@@ -122,6 +128,7 @@ var bio = {
       });
       formattedHTML = formattedHTML.slice(0,(formattedHTML.length-2));
       formattedHTML = formattedHTML + ".";
+      /* formattedHTML = spannifyFlying(formattedHTML); */
       formattedHTML = HTMLheaderIntro.replace("%data%",formattedHTML);
       $(".start-page-id-intro").append(formattedHTML);
       
@@ -302,6 +309,35 @@ var work = {
 		}
 	]
 }
+
+
+function displayWork(){
+	work.jobs.forEach(function(record){
+		$("#workExperience").append(HTMLworkStart);
+		var formattedWork = HTMLworkEmployer.replace("%data%",record.employer);
+		$("#workExperience").append(formattedWork);
+		
+		var formattedWork = HTMLworkTitle.replace("%data%",record.position);
+		$("#workExperience").append(formattedWork);
+		
+		var formattedWork = HTMLworkDates.replace("%data%",record.years);
+		$("#workExperience").append(formattedWork);
+		
+		var formattedWork = HTMLworkLocation.replace("%data%",record.location);
+		$("#workExperience").append(formattedWork);
+		
+		var formattedWork = HTMLworkDescription.replace("%data%",record.status);
+		$("#workExperience").append(formattedWork);
+		
+		
+		var formattedEmployerTitle = HTMLworkEmployer.replace("%data%",record.employer) +
+		" " + HTMLworkTitle.replace("%data%",record.position);
+		
+		$(".work-entry:last").append(formattedEmployerTitle);
+		
+	});
+}
+
 
 /* EDUCATION OBJECT */
 /* EDUCATION OBJECT */
@@ -502,43 +538,15 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-function displayWork(){
-	work.jobs.forEach(function(record){
-		$("#workExperience").append(HTMLworkStart);
-		var formattedWork = HTMLworkEmployer.replace("%data%",record.employer);
-		$("#workExperience").append(formattedWork);
-		
-		var formattedWork = HTMLworkTitle.replace("%data%",record.position);
-		$("#workExperience").append(formattedWork);
-		
-		var formattedWork = HTMLworkDates.replace("%data%",record.years);
-		$("#workExperience").append(formattedWork);
-		
-		var formattedWork = HTMLworkLocation.replace("%data%",record.location);
-		$("#workExperience").append(formattedWork);
-		
-		var formattedWork = HTMLworkDescription.replace("%data%",record.status);
-		$("#workExperience").append(formattedWork);
-		
-		
-		var formattedEmployerTitle = HTMLworkEmployer.replace("%data%",record.employer) +
-		" " + HTMLworkTitle.replace("%data%",record.position);
-		
-		$(".work-entry:last").append(formattedEmployerTitle);
-		
-	});
-}
+
 displayWork();
 bio.display(bio);
 portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
 
-function spannify(classKey){
-  var HTMLtext = $('div[class*="'+classKey+'"]').text();
-  console.log(HTMLtext);
-};
+
 $(document).ready( function(){ 
-spannify('start-page-id-name-big');
+
 /*
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
    $(".start-page-portfolio-short-minus").css('display','none'),

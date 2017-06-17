@@ -1,40 +1,12 @@
-function displayWork(){
-	work.jobs.forEach(function(record){
-		$("#workExperience").append(HTMLworkStart);
-		var formattedWork = HTMLworkEmployer.replace("%data%",record.employer);
-		$("#workExperience").append(formattedWork);
-		
-		var formattedWork = HTMLworkTitle.replace("%data%",record.position);
-		$("#workExperience").append(formattedWork);
-		
-		var formattedWork = HTMLworkDates.replace("%data%",record.years);
-		$("#workExperience").append(formattedWork);
-		
-		var formattedWork = HTMLworkLocation.replace("%data%",record.location);
-		$("#workExperience").append(formattedWork);
-		
-		var formattedWork = HTMLworkDescription.replace("%data%",record.status);
-		$("#workExperience").append(formattedWork);
-		
-		
-		var formattedEmployerTitle = HTMLworkEmployer.replace("%data%",record.employer) +
-		" " + HTMLworkTitle.replace("%data%",record.position);
-		
-		$(".work-entry:last").append(formattedEmployerTitle);
-		
-	});
-}
+
 displayWork();
 bio.display(bio);
 portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
 
-function spannify(classKey){
-  var HTMLtext = $('div[class*="'+classKey+'"]').text();
-  console.log(HTMLtext);
-};
+
 $(document).ready( function(){ 
-spannify('start-page-id-name-big');
+
 /*
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
    $(".start-page-portfolio-short-minus").css('display','none'),
