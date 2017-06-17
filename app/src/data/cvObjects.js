@@ -72,21 +72,33 @@ var bio = {
   /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
   
   "display" : function(objectBio){
-      var formattedHTML = "";
+    console.log('hello');
       
       
       /* NAME     */
-      objectBio.name.length > 2 ? (
-        formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]),
-        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
-        $(".start-page-id-name-small").append(formattedHTML),
-        console.log(formattedHTML),
-        formattedHTML = " ",
-        formattedHTML = HTMLheaderNameBig.replace("%data%",objectBio["name"]),
-        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
-        $(".start-page-id-name-big").append(formattedHTML),
-        console.log(formattedHTML)
-				):(
+      objectBio.name.length > 2 ? (function(){
+        
+        formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]);
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]);
+        $(".start-page-id-name-small").append(formattedHTML);
+        console.log(formattedHTML);
+        console.log($(".start-page-id-name-small"));
+        formattedHTML = " ";
+        var tempString = "";
+        for(var i=0, j=0; i < objectBio["name"].length; i++){
+          j++;
+          (j>9)&&(j=0);
+          tempString = tempString + 
+                      '<span class="user-span-flies-left'+j+' user-span-flies-left-start">'+
+                       objectBio["name"].charAt(i)+'</span>';
+          
+        };
+        console.log(tempString);
+        /* formattedHTML = HTMLheaderNameBig.replace("%data%",objectBio["name"]);*/
+        formattedHTML = HTMLheaderNameBig.replace("%data%",tempString);
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]);
+        $(".start-page-id-name-big").append(formattedHTML);
+        })() :(  
 					console.log("No name specified")
         );
         formattedHTML = "";
@@ -136,8 +148,7 @@ var bio = {
 					console.log("No alt text specified specified")
         )
       ;
-      console.log(formattedHTML);
-      console.log(formattedHTML);
+     
       $(".start-page-id-CVphoto").append(formattedHTML);
                
   },
@@ -161,7 +172,7 @@ var bio = {
       formattedHTMLraw = formattedHTMLraw.replace("%data-comment%",localItem2["comment"]);
       formattedHTML = formattedHTML + formattedHTMLraw;
     });
-    console.log(formattedHTML);
+    
     formattedHTML = HTMLcommitsBioTableCore.replace("%data%",formattedHTML);
     $(".start-page-commitsBioShort-collapse").append(formattedHTML);
     formattedHTML = "";

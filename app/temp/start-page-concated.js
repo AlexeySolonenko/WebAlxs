@@ -72,21 +72,33 @@ var bio = {
   /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
   
   "display" : function(objectBio){
-      var formattedHTML = "";
+    console.log('hello');
       
       
       /* NAME     */
-      objectBio.name.length > 2 ? (
-        formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]),
-        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
-        $(".start-page-id-name-small").append(formattedHTML),
-        console.log(formattedHTML),
-        formattedHTML = " ",
-        formattedHTML = HTMLheaderNameBig.replace("%data%",objectBio["name"]),
-        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]),
-        $(".start-page-id-name-big").append(formattedHTML),
-        console.log(formattedHTML)
-				):(
+      objectBio.name.length > 2 ? (function(){
+        
+        formattedHTML = HTMLheaderNameSmall.replace("%data%",objectBio["name"]);
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]);
+        $(".start-page-id-name-small").append(formattedHTML);
+        console.log(formattedHTML);
+        console.log($(".start-page-id-name-small"));
+        formattedHTML = " ";
+        var tempString = "";
+        for(var i=0, j=0; i < objectBio["name"].length; i++){
+          j++;
+          (j>9)&&(j=0);
+          tempString = tempString + 
+                      '<span class="user-span-flies-left'+j+' user-span-flies-left-start">'+
+                       objectBio["name"].charAt(i)+'</span>';
+          
+        };
+        console.log(tempString);
+        /* formattedHTML = HTMLheaderNameBig.replace("%data%",objectBio["name"]);*/
+        formattedHTML = HTMLheaderNameBig.replace("%data%",tempString);
+        formattedHTML = formattedHTML.replace("%data-tooltip%",objectBio["nameTooltip"]);
+        $(".start-page-id-name-big").append(formattedHTML);
+        })() :(  
 					console.log("No name specified")
         );
         formattedHTML = "";
@@ -136,8 +148,7 @@ var bio = {
 					console.log("No alt text specified specified")
         )
       ;
-      console.log(formattedHTML);
-      console.log(formattedHTML);
+     
       $(".start-page-id-CVphoto").append(formattedHTML);
                
   },
@@ -161,7 +172,7 @@ var bio = {
       formattedHTMLraw = formattedHTMLraw.replace("%data-comment%",localItem2["comment"]);
       formattedHTML = formattedHTML + formattedHTMLraw;
     });
-    console.log(formattedHTML);
+    
     formattedHTML = HTMLcommitsBioTableCore.replace("%data%",formattedHTML);
     $(".start-page-commitsBioShort-collapse").append(formattedHTML);
     formattedHTML = "";
@@ -496,23 +507,23 @@ function displayWork(){
 		$("#workExperience").append(HTMLworkStart);
 		var formattedWork = HTMLworkEmployer.replace("%data%",record.employer);
 		$("#workExperience").append(formattedWork);
-		console.log(formattedWork);
+		
 		var formattedWork = HTMLworkTitle.replace("%data%",record.position);
 		$("#workExperience").append(formattedWork);
-		console.log(formattedWork);
+		
 		var formattedWork = HTMLworkDates.replace("%data%",record.years);
 		$("#workExperience").append(formattedWork);
-		console.log(formattedWork);
+		
 		var formattedWork = HTMLworkLocation.replace("%data%",record.location);
 		$("#workExperience").append(formattedWork);
-		console.log(formattedWork);
+		
 		var formattedWork = HTMLworkDescription.replace("%data%",record.status);
 		$("#workExperience").append(formattedWork);
-		console.log(formattedWork);
+		
 		
 		var formattedEmployerTitle = HTMLworkEmployer.replace("%data%",record.employer) +
 		" " + HTMLworkTitle.replace("%data%",record.position);
-		console.log(formattedEmployerTitle);
+		
 		$(".work-entry:last").append(formattedEmployerTitle);
 		
 	});
@@ -522,7 +533,12 @@ bio.display(bio);
 portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
 
+function spannify(classKey){
+  var HTMLtext = $('div[class*="'+classKey+'"]').text();
+  console.log(HTMLtext);
+};
 $(document).ready( function(){ 
+spannify('start-page-id-name-big');
 /*
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
    $(".start-page-portfolio-short-minus").css('display','none'),
@@ -560,8 +576,8 @@ $(document).ready( function(){
   setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("hide");
     },10000);
-  $('.user-flying-letter').removeClass('user-flying-letter-start');
-  console.log('user-flying-letter');
+  $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
+  
 });
 
 // short portfolio collapsable 
