@@ -3,6 +3,7 @@ displayWork();
 bio.display(bio);
 portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
+modalIntro.build(modalIntro);
 
 
 $(document).ready( function(){ 
@@ -21,12 +22,15 @@ $(document).ready( function(){
   $(".start-page-commitsBio-minus").css('display','none');
   $(".start-page-commitsBio-plus").css('display','inline');
   $('[data-toggle="tooltip"]').tooltip();
-  setTimeout(function(){
+  /* setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("show");
     },1700);
   setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("hide");
-    },6000);
+    },6000); */
+  setTimeout(function(){
+      $('.user-modal-intro').modal('show');
+    },2000);
   // $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
   
 }); 
