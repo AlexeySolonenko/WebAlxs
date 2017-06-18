@@ -3,7 +3,7 @@
       for(var i=0,j=0;i<string.length;i++){
         (j>9)&&(j=0);
         spannified = spannified +
-        '<span class="user-span-flies-left'+j+' user-span-flies-left-start">'+
+        '<span class="user-span-flies-left'+j+' ">'+
         string.charAt(i)+'</span>';
         j++;
       };
@@ -584,10 +584,10 @@ $(document).ready( function(){
   setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("hide");
     },10000);
-  $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
+  // $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
   
-});
-
+}); 
+$('span[class*="user-span-flies"').hover(hide(),show());//'user-span-flies-left-start');
 // short portfolio collapsable 
 $(".start-page-portfolio-short").click( function(){ 
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
