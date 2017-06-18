@@ -3,7 +3,7 @@
       for(var i=0,j=0;i<string.length;i++){
         (j>9)&&(j=0);
         spannified = spannified +
-        '<span class="user-span-flies-left'+j+' ">'+
+        '<span class="user-span-flies-left'+j+' user-hide-show">'+
         string.charAt(i)+'</span>';
         j++;
       };
@@ -562,32 +562,16 @@ $(document).ready( function(){
   $(".start-page-commitsBio-plus").css('display','inline');
   $('[data-toggle="tooltip"]').tooltip();
   setTimeout(function(){
-      $('.start-page-id-name-small > h1').tooltip("show");
-      $('.start-page-id-name-big > h1').tooltip("show");
-    },500);
-  setTimeout(function(){
-      $('.start-page-id-name-small > h1').tooltip("hide");
-      $('.start-page-id-name-big > h1').tooltip("hide");
-      $('.start-page-id-CVphoto picture').tooltip("show");
-    },2500);
-  setTimeout(function(){
-      $('.start-page-id-name-small > h1').tooltip("show");
-      $('.start-page-id-name-big > h1').tooltip("show");
-      $('.start-page-id-CVphoto picture').tooltip("hide");
-    },4500);
-  setTimeout(function(){
-      $('.start-page-id-name-small > h1').tooltip("hide");
-      $('.start-page-id-name-big > h1').tooltip("hide");
-      $('.start-page-id-CVphoto picture').tooltip("hide");
       $('.user-welcome-tooltip').tooltip("show");
-    },5500);
+    },1700);
   setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("hide");
-    },10000);
+    },6000);
   // $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
   
 }); 
-$('span[class*="user-span-flies"').hover(hide(),show());//'user-span-flies-left-start');
+//  $('.user-hide-show').hover(console.log('in'),console.log('out'));//'user-span-flies-left-start');
+// $('.user-hide-show').click(console.log('in'));//'user-span-flies-left-start');
 // short portfolio collapsable 
 $(".start-page-portfolio-short").click( function(){ 
   $(".start-page-portfolio-short-collapse").is(':visible') ? (

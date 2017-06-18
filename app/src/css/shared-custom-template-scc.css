@@ -272,7 +272,8 @@ CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
 .collapsed01, .start-page-commitsBioShort .start-page-commitsBioShort-collapse,
 .start-page-commitsBio-plus, .start-page-commitsBio-minus, 
 .start-page-portfolio-short-plus, .short-page-portfolio-short-minus,
-.start-page-id-contacts, .start-page-id-header, .user-welcome-tooltip
+.start-page-id-contacts, .start-page-id-header, .user-welcome-tooltip, 
+.user-hide-show
  {
   
 }
