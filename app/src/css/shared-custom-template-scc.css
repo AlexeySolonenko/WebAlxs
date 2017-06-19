@@ -149,20 +149,20 @@ display:none;
 }
 
 /* span[class*="user-span-flies"]{ display:inline-block; white-space:pre;} */
-span[class*="user-span-flies"]{ position: relative; white-space:pre;}
+span[class*="user-span-flies"]{ position: relative; display:inline-block; white-space:pre;}
 
 @-webkit-keyframes user-span-flies-left-anim{
   0% {left: 90vw; opacity:0;}
   2% {left: 90vw; opacity: 1;}
   50% {left: 50vw; }
-  100% {left: 0px; position:static;}   
+  100% {left: 0px; }   
 }
 
 @keyframes user-span-flies-left-anim{
   0% {left: 90vw; opacity:0;}
   2% {left: 90vw; opacity: 1;}
   50% {left: 50vw; }
-  100% {left: 0px; position: static;}      
+  100% {left: 0px; }      
 }
 
 .user-test{
@@ -273,7 +273,7 @@ CLASSES USED INSTEAD OF IDs FOR HTML MARKUP
 .start-page-commitsBio-plus, .start-page-commitsBio-minus, 
 .start-page-portfolio-short-plus, .short-page-portfolio-short-minus,
 .start-page-id-contacts, .start-page-id-header, .user-welcome-tooltip, 
-.user-hide-show, .user-modal-intro
+.user-hide-show, .user-modal-intro, .user-modal-intro-label
  {
   
 }

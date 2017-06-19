@@ -1,5 +1,5 @@
 
-displayWork();
+// displayWork();
 bio.display(bio);
 portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
@@ -31,6 +31,15 @@ $(document).ready( function(){
   setTimeout(function(){
       $('.user-modal-intro').modal('show');
     },2000);
+   
+  setTimeout(function(){
+      $('.start-page-id-name-small span').each(function(){
+        ($(this).text() == " ")&&
+          ($(this).after("<br /br>"),console.log('hello',$(this)));
+      });
+  },300);
+
+  
   // $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
   
 }); 
@@ -38,7 +47,9 @@ $(document).ready( function(){
 // $('.user-hide-show').click(console.log('in'));//'user-span-flies-left-start');
 // short portfolio collapsable 
 $(".start-page-portfolio-short").click( function(){ 
+
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
+  console.log('portfolio click'),
    $(".start-page-portfolio-short-minus").css('display','none'),
    $(".start-page-portfolio-short-plus").css('display','inline')
   ) : (

@@ -24,7 +24,6 @@ var modalIntro = {
     formattedHTML = "";
     formattedHTML = HTMLmodalIntroBody.replace('%data%',objectModalIntro['message']);
     $('.user-modal-intro .modal-body').append(formattedHTML);
-    console.log(formattedHTML);
     
   }
   

@@ -3,7 +3,7 @@
       for(var i=0,j=0;i<string.length;i++){
         (j>9)&&(j=0);
         spannified = spannified +
-        '<span class="user-span-flies-left'+j+' user-hide-show">'+
+        '<span class="user-span-flies-left'+j+' ">'+
         string.charAt(i)+'</span>';
         j++;
       };
@@ -12,36 +12,8 @@
     
 
 
-/* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   
-/* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   
-/* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   
-
-var modalIntro = {
-
-  /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
-  /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
-  
-  'title' : 'WELCOME TO ALEXEY SOLONENKO PORTFOLIO WEBPAGE',  
-  'message' : 
-    '<p>This page is built dynamically from multiple files. Style, mark-up and data are combined and optimized with help'+
-      'of Grunt task automation and Javascript.</p>'+
-    '<br /br><p>This page shows and explains various <b>Front End Techniques</b> I am learning and applying at my mini-degree'+
-      'Front End Development course.</p>'+
-    '<br /br><p>As well it lists my small but growing junior portfolio. Hope, you enjoy your time here!.</p>'+
-    '<br /br><p>Please, refer to tooltips detailing individual elements. Src and test(s) are available on GitHub as per link below.</p>',
-  /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
-
-  'build' : function(objectModalIntro){
-    var formattedHTML = HTMLmodalIntroTitle.replace('%data%',objectModalIntro['title']);
-    $('.user-modal-intro .modal-title').append(formattedHTML);
-    formattedHTML = "";
-    formattedHTML = HTMLmodalIntroBody.replace('%data%',objectModalIntro['message']);
-    $('.user-modal-intro .modal-body').append(formattedHTML);
-    console.log(formattedHTML);
-    
-  }
-  
-};
+var HTMLmodalIntroTitle =  '%data%';
+var HTMLmodalIntroBody =  '%data%';
 
 
 // HEADER RAW
@@ -130,8 +102,35 @@ var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 
-var HTMLmodalIntroTitle =  '%data%';
-var HTMLmodalIntroBody =  '%data%';
+/* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   
+/* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   
+/* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   /* INTRO MODAL OBJECT */   
+
+var modalIntro = {
+
+  /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+  /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+  
+  'title' : 'WELCOME TO ALEXEY SOLONENKO PORTFOLIO WEBPAGE',  
+  'message' : 
+    '<p>This page is built dynamically from multiple files. Style, mark-up and data are combined and optimized with help'+
+      'of Grunt task automation and Javascript.</p>'+
+    '<br /br><p>This page shows and explains various <b>Front End Techniques</b> I am learning and applying at my mini-degree'+
+      'Front End Development course.</p>'+
+    '<br /br><p>As well it lists my small but growing junior portfolio. Hope, you enjoy your time here!.</p>'+
+    '<br /br><p>Please, refer to tooltips detailing individual elements. Src and test(s) are available on GitHub as per link below.</p>',
+  /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+
+  'build' : function(objectModalIntro){
+    var formattedHTML = HTMLmodalIntroTitle.replace('%data%',objectModalIntro['title']);
+    $('.user-modal-intro .modal-title').append(formattedHTML);
+    formattedHTML = "";
+    formattedHTML = HTMLmodalIntroBody.replace('%data%',objectModalIntro['message']);
+    $('.user-modal-intro .modal-body').append(formattedHTML);
+    
+  }
+  
+};
 
 /* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
 /* HEADER + BIO OBJECT */  /* HEADER + BIO OBJECT */
@@ -573,7 +572,7 @@ var projects = {
 
 
 
-displayWork();
+// displayWork();
 bio.display(bio);
 portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
@@ -605,6 +604,15 @@ $(document).ready( function(){
   setTimeout(function(){
       $('.user-modal-intro').modal('show');
     },2000);
+   
+  setTimeout(function(){
+      $('.start-page-id-name-small span').each(function(){
+        ($(this).text() == " ")&&
+          ($(this).after("<br /br>"),console.log('hello',$(this)));
+      });
+  },300);
+
+  
   // $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
   
 }); 
@@ -612,7 +620,9 @@ $(document).ready( function(){
 // $('.user-hide-show').click(console.log('in'));//'user-span-flies-left-start');
 // short portfolio collapsable 
 $(".start-page-portfolio-short").click( function(){ 
+
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
+  console.log('portfolio click'),
    $(".start-page-portfolio-short-minus").css('display','none'),
    $(".start-page-portfolio-short-plus").css('display','inline')
   ) : (
