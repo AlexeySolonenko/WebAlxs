@@ -619,6 +619,44 @@ $(document).ready( function(){
 //  $('.user-hide-show').hover(console.log('in'),console.log('out'));//'user-span-flies-left-start');
 // $('.user-hide-show').click(console.log('in'));//'user-span-flies-left-start');
 // short portfolio collapsable 
+
+$('.start-page-id-name-small span').css('display','inline-block');
+$('.user-modal-intro-button1').click(function(){
+  $('.start-page-id-name-small span').css('display','none');
+  setTimeout(function(){
+    $('.start-page-id-name-small span').css('display','inline-block');
+  },200);
+    $('.start-page-id-name-big span').css('display','none');
+  setTimeout(function(){
+    $('.start-page-id-name-big span').css('display','inline-block');
+  },200);
+    $('.start-page-id-intro b:first-of-type span').css('display','none');
+  setTimeout(function(){
+    $('.start-page-id-intro b:first-of-type span').css('display','inline-block');
+  },200);
+});
+
+$('.start-page-id-name-small span').hover(function(){
+   $(this).css('display','none');
+  setTimeout(function(){
+    $('.start-page-id-name-small span').css('display','inline-block');
+  },30);
+});
+
+$('.start-page-id-name-big span').hover(function(){
+   $(this).css('display','none');
+  setTimeout(function(){
+    $('.start-page-id-name-big span').css('display','inline-block');
+  },30);
+});
+
+$('.start-page-id-intro b:first-of-type span').hover(function(){
+   $(this).css('display','none');
+  setTimeout(function(){
+    $('.start-page-id-intro b:first-of-type span').css('display','inline-block');
+  },30);
+});
+
 $(".start-page-portfolio-short").click( function(){ 
 
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
