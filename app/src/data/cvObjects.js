@@ -203,14 +203,23 @@ var portfolio = {
       "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I am continuously developing and improving.",
       "tooltip": ""
     },
-   {
+    {
+      "title" : "PRE-RELEASE. Arcade game!  ",
+      "url" : "https://cdn.rawgit.com/AlexeySolonenko/frontend-nanodegree-arcade-game/0138f7a3/index.html",
+      "desc" : "Interactive RESPONSIVE (try with different user agents) arcade game (under speedy development). Use developer tools for best experience and the largest field. RequestAnimationFrame HTML5 canvas sprite-based game. KeyBoard + touch controls. JS+CSS for controls and interactivity. A prototype game and libraries for my oncoming projects this fall in educational fields. <a href='https://github.com/AlexeySolonenko/frontend-nanodegree-arcade-game/blob/master' target='_blank'><b>GitHub repo.</b></a>. Menu structures, new types of enemies and missions, lifes and scores are coming soon. Built using JavaScript.",
+      "motto": "Hero is not a noun, is a verb, a continuous tense.",
+      "descShort" : "The great decendant of an ancient Frogger Constructor. Prototype and cache empowered is fearless of recursions, callbacks and any type of extraterrestial invaders. The legendary saga of endless fame is going to deploy soon. At currently available level Player needs to lead Frogger through a swarm (depending on resolution of your screen) of extraterristial invaders-bugs. The final target is a water pool. Once the pool is reached, the level is accomplished.",
+      "tooltip": "Frogger-your-instance the Great is the last hope of his mother-planet and its scarcing natives!"
+    },
+    {
       "title" : "Building Management System ",
       "url" : "",
       "desc" : "I designed and programmed a real-world industrial control system with HMI for control and supervision of a 16000 sq.m. building facilities. HMI includes multiple screen-sets for various user groups, data logging and retrieval, report printing and a bunch of handy automation tools. ",
       "motto": "Smart building starts with a smart interface that can speak to any 'non-smart' user.",
       "descShort" : "A project page is under development. HMI is a center point of this project. It provides automation tools for smart energy consumption for maintenance personnel. Supervision and troubleshooting tools for engineering. Intuitive interface for daily rooting operations that is easily handled by all sorts of staff: security, helpers, etc. ",
       "tooltip": ""
-    }
+    } 
+
   ],
 
 /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
