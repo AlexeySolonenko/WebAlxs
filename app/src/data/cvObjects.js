@@ -192,6 +192,7 @@ var portfolio = {
       "url" : "http://studysnami.ru/index.php/ru/",
       "desc" : "Real working website promoting studying English in Malta to Russians. English version is under work. I get to like Joomla a lot while working on this website. W3 css theme.",
       "motto": "Better an egg today than a hen tomorrow.",
+      "pic" : "",
       "descShort" : "Language courses promotion website. Joomla. W3schools framework - built-in joomla template. My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignited to give a Front End a professional try. Thanks W3schools for their amazing work.",
       "tooltip": ""
     },
@@ -200,6 +201,7 @@ var portfolio = {
       "url" : "http://tab4lioz.beget.tech/",
       "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
       "motto": "'Do it right' is the shortest road.",
+      "pic" : "",
       "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I am continuously developing and improving.",
       "tooltip": ""
     },
@@ -207,8 +209,9 @@ var portfolio = {
       "title" : "PRE-RELEASE. Arcade game!  ",
       "url" : "https://cdn.rawgit.com/AlexeySolonenko/frontend-nanodegree-arcade-game/0138f7a3/index.html",
       "desc" : "Interactive RESPONSIVE (try with different user agents) arcade game (under speedy development). Use developer tools for best experience and the largest field. RequestAnimationFrame HTML5 canvas sprite-based game. KeyBoard + touch controls. JS+CSS for controls and interactivity. A prototype game and libraries for my oncoming projects this fall in educational fields. <a href='https://github.com/AlexeySolonenko/frontend-nanodegree-arcade-game/blob/master' target='_blank'><b>GitHub repo.</b></a>. Menu structures, new types of enemies and missions, lifes and scores are coming soon. Built using JavaScript.",
-      "motto": "Hero is not a noun, is a verb, a continuous tense.",
-      "descShort" : "The great decendant of an ancient Frogger Constructor. Prototype and cache empowered is fearless of recursions, callbacks and any type of extraterrestial invaders. The legendary saga of endless fame is going to deploy soon. At currently available level Player needs to lead Frogger through a swarm (depending on resolution of your screen) of extraterristial invaders-bugs. The final target is a water pool. Once the pool is reached, the level is accomplished.",
+      "motto": "Hero is not a noun, is an -ing verb.",
+      "pic" : tools.tempVar1,
+      "descShort" : "An Arcade Game. Responsive layout, both, key-board and touch-screen controls. HTML5 canvas with cashed ligth-weight sprites, OOP structured classes and objects, JavaScript, Bootstrap, jQuery. (Under development).", 
       "tooltip": "Frogger-your-instance the Great is the last hope of his mother-planet and its scarcing natives!"
     },
     {
@@ -216,6 +219,7 @@ var portfolio = {
       "url" : "",
       "desc" : "I designed and programmed a real-world industrial control system with HMI for control and supervision of a 16000 sq.m. building facilities. HMI includes multiple screen-sets for various user groups, data logging and retrieval, report printing and a bunch of handy automation tools. ",
       "motto": "Smart building starts with a smart interface that can speak to any 'non-smart' user.",
+      "pic" : "",
       "descShort" : "A project page is under development. HMI is a center point of this project. It provides automation tools for smart energy consumption for maintenance personnel. Supervision and troubleshooting tools for engineering. Intuitive interface for daily rooting operations that is easily handled by all sorts of staff: security, helpers, etc. ",
       "tooltip": ""
     } 
@@ -245,8 +249,12 @@ var portfolio = {
     portfolio["portfolio"].forEach(function(localItem){
       formattedHTML =  HTMLportfolioShortEntryTitleUrl.replace("%data%",localItem["url"])+
         HTMLportfolioShortEntryTitle.replace("%data%",localItem["title"]) +
-        HTMLportfolioShortEntryMotto.replace("%data%", localItem["motto"]) +
-        HTMLportfolioShortEntryDescShort.replace("%data%",localItem["descShort"]);
+        HTMLportfolioShortEntryMotto.replace("%data%", localItem["motto"]);
+      
+      if(localItem["pic"]!=""){
+        formattedHTML = formattedHTML + HTMLportfolioshortEntryPic.replace("%data%",localItem["pic"])
+      };
+      formattedHTML = formattedHTML + HTMLportfolioShortEntryDescShort.replace("%data%",localItem["descShort"]);
       formattedHTML = HTMLportfolioShortEntryBox.replace("%data%",formattedHTML);
       $(".start-page-portfolio-short-collapse").append(formattedHTML);
       formattedHTML = "";      

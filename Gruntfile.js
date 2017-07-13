@@ -169,6 +169,25 @@ module.exports = function(grunt) {
       //options:{
         //engine:'im',
       //}
+      arcadegame:{
+        options:{
+          sizes:[
+            {
+              width: 380,
+              suffix:"_q040"
+              ,quality:40
+            }
+            ]}
+        ,files:[{
+          //'tennis_001.jpg':'img/tennis_009.jpg'
+          expand:true
+          ,src: ['src/img/*.{jpg,gif,png}']
+          ,cwd: 'app/'
+		      ,dest: 'app/test/images/'
+        }]
+        //,src:'tennis_001.jpg'
+		    //,dest:'img/tennis_009.jpg'
+      },
       respimg1:{
         options:{
           sizes:[
@@ -198,9 +217,9 @@ module.exports = function(grunt) {
         ,files:[{
           //'tennis_001.jpg':'img/tennis_009.jpg'
           expand:true
-          ,src: ['**.{jpg,gif,png}']
-          ,cwd: 'images_src/'
-		      ,dest: 'images/'
+          ,src: ['src/img/*.{jpg,gif,png}']
+          ,cwd: 'app/'
+		      ,dest: 'test/images/'
         }]
         //,src:'tennis_001.jpg'
 		    //,dest:'img/tennis_009.jpg'

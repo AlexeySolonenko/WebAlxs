@@ -5,9 +5,15 @@ portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
 modalIntro.build(modalIntro);
 
+var carouselArcadeRestart = function(){
+  $('#user-arcade-game-carousel').carousel('cycle');
+  setTimeout(function(){
+    carouselArcadeRestart();
+  },2000);
+};
 
 $(document).ready( function(){ 
-
+console.log('document ready');
 /*
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
    $(".start-page-portfolio-short-minus").css('display','none'),
@@ -39,7 +45,13 @@ $(document).ready( function(){
       });
   },300);
 
+
   
+  
+  $('.carousel').carousel({
+    interval: 500
+  });
+  carouselArcadeRestart();
   // $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
   
 }); 

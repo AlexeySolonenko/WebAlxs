@@ -11,6 +11,172 @@
     }; 
     
 
+var tools = {a:1};
+// var tools = {}; // object for storing various tools;
+
+
+    
+    /* Resources.js
+ * This is simply an image loading utility. It eases the process of loading
+ * image files so that they can be used within your game. It also includes
+ * a simple "caching" layer so it will reuse cached images if you attempt
+ * to load the same image multiple times.
+ */
+ "use strict";
+var defineResources = function() {
+    var resourceCache = {};
+    var loading = [];
+    var readyCallbacks = [];
+
+    /* This is the publicly accessible image loading function. It accepts
+     * an array of strings pointing to image files or a string for a single
+     * image. It will then call our private image loading function accordingly.
+     */
+    function load(urlOrArr) {
+        if(urlOrArr instanceof Array) {
+            /* If the developer passed in an array of images
+             * loop through each value and call our image
+             * loader on that image file
+             */
+            urlOrArr.forEach(function(url) {
+                _load(url);
+            });
+        } else {
+            /* The developer did not pass an array to this function,
+             * assume the value is a string and call our image loader
+             * directly.
+             */
+            _load(urlOrArr);
+        }
+    }
+
+    /* This is our private image loader function, it is
+     * called by the public image loader function.
+     */
+    function _load(url) {
+        if(resourceCache[url]) {
+            /* If this URL has been previously loaded it will exist within
+             * our resourceCache array. Just return that image rather
+             * re-loading the image.
+             */
+            return resourceCache[url];
+        } else {
+            /* This URL has not been previously loaded and is not present
+             * within our cache; we'll need to load this image.
+             */
+            var img = new Image();
+            img.onload = function() {
+                /* Once our image has properly loaded, add it to our cache
+                 * so that we can simply return this image if the developer
+                 * attempts to load this file in the future.
+                 */
+                resourceCache[url] = img;
+
+                /* Once the image is actually loaded and properly cached,
+                 * call all of the onReady() callbacks we have defined.
+                 */
+                if(isReady()) {
+                    readyCallbacks.forEach(function(func) { func(); });
+                }
+            };
+
+            /* Set the initial cache value to false, this will change when
+             * the image's onload event handler is called. Finally, point
+             * the image's src attribute to the passed in URL.
+             */
+            resourceCache[url] = false;
+            img.src = url;
+        }
+    }
+
+    /* This is used by developers to grab references to images they know
+     * have been previously loaded. If an image is cached, this functions
+     * the same as calling load() on that URL.
+     */
+    function get(url) {
+        return resourceCache[url];
+    }
+
+    /* This function determines if all of the images that have been requested
+     * for loading have in fact been properly loaded.
+     */
+    function isReady() {
+        var ready = true;
+        for(var k in resourceCache) {
+            if(resourceCache.hasOwnProperty(k) &&
+               !resourceCache[k]) {
+                ready = false;
+            }
+        }
+        return ready;
+    }
+
+    /* This function will add a function to the callback stack that is called
+     * when all requested images are properly loaded.
+     */
+    function onReady(func) {
+        readyCallbacks.push(func);
+    }
+
+    /* This object defines the publicly accessible functions available to
+     * developers by creating a global Resources object.
+     */
+    window.Resources = {
+        load: load,
+        get: get,
+        onReady: onReady,
+        isReady: isReady
+    };
+    tools.Resources = {
+        load: load,
+        get: get,
+        onReady: onReady,
+        isReady: isReady
+    };
+    console.log('here');
+   
+};
+
+
+tools.tempVar1 = '<div id="user-arcade-game-carousel" class="carousel  " data-ride="carousel">'+
+  '<ol class="carousel-indicators"> '+
+  '  <li data-target="#user-arcade-game-carousel" data-slide-to="0" class="active"></li> '+
+  '  <li data-target="#user-arcade-game-carousel" data-slide-to="1" ></li> '+
+  '  <li data-target="#user-arcade-game-carousel" data-slide-to="2" ></li> '+
+  '  <li data-target="#user-arcade-game-carousel" data-slide-to="3" ></li> '+
+  '  <li data-target="#user-arcade-game-carousel" data-slide-to="4" ></li> '+
+  '  <li data-target="#user-arcade-game-carousel" data-slide-to="5" ></li> '+
+  '  <li data-target="#user-arcade-game-carousel" data-slide-to="6" ></li> '+
+  '  <li data-target="#user-arcade-game-carousel" data-slide-to="7" ></li> '+
+  '</ol> '+
+  '<div class="carousel-inner" role="listbox"> '+
+  '  <div class="item active"> '+
+  '    <img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/arcade_game_ini_001-380_q040.jpg" alt="game screenshot1"> '+
+  '  </div> '+
+  '  <div class="item"> '+
+  '    <img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/arcade_game_ini_002-380_q040.jpg" alt="game screenshot1"> '+
+  '  </div> '+
+  '  <div class="item"> '+
+  '    <img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/arcade_game_ini_003-380_q040.jpg" alt="game screenshot1"> '+
+  '  </div> '+
+  '  <div class="item"> '+
+  '    <img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/arcade_game_ini_005-380_q040.jpg" alt="game screenshot1"> '+
+  '  </div> '+
+  '  <div class="item"> '+
+  '    <img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/arcade_game_ini_006-380_q040.jpg" alt="game screenshot1"> '+
+  '  </div> '+
+  '  <div class="item"> '+
+  '    <img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/arcade_game_ini_007-380_q040.jpg" alt="game screenshot1"> '+
+  '  </div> '+
+  '  <div class="item"> '+
+  '    <img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/arcade_game_ini_008-380_q040.jpg" alt="game screenshot1"> '+
+  '  </div> '+
+  '  <div class="item"> '+
+  '    <img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/arcade_game_ini_009-380_q040.jpg" alt="game screenshot1"> '+
+  '  </div> '+
+  '</div> '+
+'</div>'
+
 
 var HTMLmodalIntroTitle =  '%data%';
 var HTMLmodalIntroBody =  '%data%';
@@ -44,6 +210,7 @@ var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg
 var HTMLportfolioShortEntryTitleUrl = '<div class="text-justify"><h4><a href="%data%" target="_blank">';
 var HTMLportfolioShortEntryTitle ='%data%</a></h4></div>';
 var HTMLportfolioShortEntryMotto ='<div class="text-justify"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
+var HTMLportfolioshortEntryPic = '<div class="thumbnail img-responsive pull-left user-right-Margin-1em user-width50pc">%data%</div>';
 var HTMLportfolioShortEntryDescShort ='<div class="text-justify"><span><b>About: </b></span>%data%</div>';
 
 
@@ -111,14 +278,16 @@ var modalIntro = {
   /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
   
-  'title' : 'WELCOME TO ALEXEY SOLONENKO PORTFOLIO WEBPAGE',  
+  'title' : 'PRODUCTIVE AND DILIGENT FRONT-END DEVELOPER',  
   'message' : 
-    '<p>This page is built dynamically from multiple files. Style, mark-up and data are combined and optimized with help'+
-      'of Grunt task automation and Javascript.</p>'+
-    '<br /br><p>This page shows and explains various <b>Front End Techniques</b> I am learning and applying at my mini-degree'+
-      'Front End Development course.</p>'+
-    '<br /br><p>As well it lists my small but growing junior portfolio. Hope, you enjoy your time here!.</p>'+
-    '<br /br><p>Please, refer to tooltips detailing individual elements. Src and test(s) are available on GitHub as per link below.</p>',
+    '<p>Welcome to my portfolio webpage. <mark><b>THANK YOU</b></mark> very much for your'+
+    'time and attention provided for visiting.</p>'+
+    '<br /br><p>One look <span class="glyphicon glyphicon-eye-open"></span> may be worth a 1000'+
+    ' words <span class="glyphicon glyphicon-earphone"></span>. <code>One line of code</code> may be worth a day of watching.'+
+    ' That is what my page is about.</p>'+
+    '<p>Please, refer to tooltips detailing the story.</p>'+
+    '<br /br><p>If you are a tech, please, go straight to dev tools and git repos (since everything is <code>'+
+    'uglified</code>).',
   /* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
 
   'build' : function(objectModalIntro){
@@ -325,6 +494,7 @@ var portfolio = {
       "url" : "http://studysnami.ru/index.php/ru/",
       "desc" : "Real working website promoting studying English in Malta to Russians. English version is under work. I get to like Joomla a lot while working on this website. W3 css theme.",
       "motto": "Better an egg today than a hen tomorrow.",
+      "pic" : "",
       "descShort" : "Language courses promotion website. Joomla. W3schools framework - built-in joomla template. My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignited to give a Front End a professional try. Thanks W3schools for their amazing work.",
       "tooltip": ""
     },
@@ -333,6 +503,7 @@ var portfolio = {
       "url" : "http://tab4lioz.beget.tech/",
       "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
       "motto": "'Do it right' is the shortest road.",
+      "pic" : "",
       "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I am continuously developing and improving.",
       "tooltip": ""
     },
@@ -340,8 +511,9 @@ var portfolio = {
       "title" : "PRE-RELEASE. Arcade game!  ",
       "url" : "https://cdn.rawgit.com/AlexeySolonenko/frontend-nanodegree-arcade-game/0138f7a3/index.html",
       "desc" : "Interactive RESPONSIVE (try with different user agents) arcade game (under speedy development). Use developer tools for best experience and the largest field. RequestAnimationFrame HTML5 canvas sprite-based game. KeyBoard + touch controls. JS+CSS for controls and interactivity. A prototype game and libraries for my oncoming projects this fall in educational fields. <a href='https://github.com/AlexeySolonenko/frontend-nanodegree-arcade-game/blob/master' target='_blank'><b>GitHub repo.</b></a>. Menu structures, new types of enemies and missions, lifes and scores are coming soon. Built using JavaScript.",
-      "motto": "Hero is not a noun, is a verb, a continuous tense.",
-      "descShort" : "The great decendant of an ancient Frogger Constructor. Prototype and cache empowered is fearless of recursions, callbacks and any type of extraterrestial invaders. The legendary saga of endless fame is going to deploy soon. At currently available level Player needs to lead Frogger through a swarm (depending on resolution of your screen) of extraterristial invaders-bugs. The final target is a water pool. Once the pool is reached, the level is accomplished.",
+      "motto": "Hero is not a noun, is an -ing verb.",
+      "pic" : tools.tempVar1,
+      "descShort" : "An Arcade Game. Responsive layout, both, key-board and touch-screen controls. HTML5 canvas with cashed ligth-weight sprites, OOP structured classes and objects, JavaScript, Bootstrap, jQuery. (Under development).", 
       "tooltip": "Frogger-your-instance the Great is the last hope of his mother-planet and its scarcing natives!"
     },
     {
@@ -349,6 +521,7 @@ var portfolio = {
       "url" : "",
       "desc" : "I designed and programmed a real-world industrial control system with HMI for control and supervision of a 16000 sq.m. building facilities. HMI includes multiple screen-sets for various user groups, data logging and retrieval, report printing and a bunch of handy automation tools. ",
       "motto": "Smart building starts with a smart interface that can speak to any 'non-smart' user.",
+      "pic" : "",
       "descShort" : "A project page is under development. HMI is a center point of this project. It provides automation tools for smart energy consumption for maintenance personnel. Supervision and troubleshooting tools for engineering. Intuitive interface for daily rooting operations that is easily handled by all sorts of staff: security, helpers, etc. ",
       "tooltip": ""
     } 
@@ -378,8 +551,12 @@ var portfolio = {
     portfolio["portfolio"].forEach(function(localItem){
       formattedHTML =  HTMLportfolioShortEntryTitleUrl.replace("%data%",localItem["url"])+
         HTMLportfolioShortEntryTitle.replace("%data%",localItem["title"]) +
-        HTMLportfolioShortEntryMotto.replace("%data%", localItem["motto"]) +
-        HTMLportfolioShortEntryDescShort.replace("%data%",localItem["descShort"]);
+        HTMLportfolioShortEntryMotto.replace("%data%", localItem["motto"]);
+      
+      if(localItem["pic"]!=""){
+        formattedHTML = formattedHTML + HTMLportfolioshortEntryPic.replace("%data%",localItem["pic"])
+      };
+      formattedHTML = formattedHTML + HTMLportfolioShortEntryDescShort.replace("%data%",localItem["descShort"]);
       formattedHTML = HTMLportfolioShortEntryBox.replace("%data%",formattedHTML);
       $(".start-page-portfolio-short-collapse").append(formattedHTML);
       formattedHTML = "";      
@@ -587,9 +764,15 @@ portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
 modalIntro.build(modalIntro);
 
+var carouselArcadeRestart = function(){
+  $('#user-arcade-game-carousel').carousel('cycle');
+  setTimeout(function(){
+    carouselArcadeRestart();
+  },2000);
+};
 
 $(document).ready( function(){ 
-
+console.log('document ready');
 /*
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
    $(".start-page-portfolio-short-minus").css('display','none'),
@@ -621,7 +804,13 @@ $(document).ready( function(){
       });
   },300);
 
+
   
+  
+  $('.carousel').carousel({
+    interval: 500
+  });
+  carouselArcadeRestart();
   // $('span[class*="user-span-flies"').removeClass('user-span-flies-left-start');
   
 }); 
