@@ -206,7 +206,7 @@ var portfolio = {
     },
     {
       "title" : "Arcade game! (pre-release) ",
-      "url" : "https://cdn.rawgit.com/AlexeySolonenko/frontend-nanodegree-arcade-game/0138f7a3/index.html",
+      "url" : "https://cdn.rawgit.com/AlexeySolonenko/frontend-nanodegree-arcade-game/abb76a85/app/test/index-min.html",
       "desc" : "Interactive RESPONSIVE (try with different user agents) arcade game (under speedy development). Use developer tools for best experience and the largest field. RequestAnimationFrame HTML5 canvas sprite-based game. KeyBoard + touch controls. JS+CSS for controls and interactivity. A prototype game and libraries for my oncoming projects this fall in educational fields. <a href='https://github.com/AlexeySolonenko/frontend-nanodegree-arcade-game' target='_blank'><b>GitHub repo.</b></a>. Menu structures, new types of enemies and missions, lifes and scores are coming soon. Built using JavaScript.",
       "motto": "Hero is not a noun, is an -ing verb.",
       "pic" : tools.tempVar1,
