@@ -28,7 +28,8 @@ var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg
 var HTMLportfolioShortEntryTitleUrl = '<div class="text-justify"><h4><a href="%data%" target="_blank">';
 var HTMLportfolioShortEntryTitle ='%data%</a></h4></div>';
 var HTMLportfolioShortEntryMotto ='<div class="text-justify"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
-var HTMLportfolioshortEntryPic = '<div class="thumbnail img-responsive pull-left user-right-Margin-1em user-width50pc">%data%</div>';
+var HTMLportfolioshortEntryPicBigScr = '<div class="thumbnail img-responsive pull-left user-right-Margin-1em user-width50pc hidden-xs">%data%</div>';
+var HTMLportfolioshortEntryPicSmallScr =   '<div class="thumbnail img-responsive hidden-sm hidden-md hidden-lg">%data%</div>';
 var HTMLportfolioShortEntryDescShort ='<div class="text-justify"><span><b>About: </b></span>%data%</div>';
 
 

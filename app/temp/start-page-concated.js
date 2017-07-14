@@ -210,7 +210,8 @@ var HTMLportfolioShortEntryBox = '<div class="col-xs-12 col-sm-6 col-md-6 col-lg
 var HTMLportfolioShortEntryTitleUrl = '<div class="text-justify"><h4><a href="%data%" target="_blank">';
 var HTMLportfolioShortEntryTitle ='%data%</a></h4></div>';
 var HTMLportfolioShortEntryMotto ='<div class="text-justify"><mark><span><b>motto: </b></span><i>%data%</i></mark></div>';
-var HTMLportfolioshortEntryPic = '<div class="thumbnail img-responsive pull-left user-right-Margin-1em user-width50pc">%data%</div>';
+var HTMLportfolioshortEntryPicBigScr = '<div class="thumbnail img-responsive pull-left user-right-Margin-1em user-width50pc hidden-xs">%data%</div>';
+var HTMLportfolioshortEntryPicSmallScr =   '<div class="thumbnail img-responsive hidden-sm hidden-md hidden-lg">%data%</div>';
 var HTMLportfolioShortEntryDescShort ='<div class="text-justify"><span><b>About: </b></span>%data%</div>';
 
 
@@ -319,7 +320,7 @@ var bio = {
                   "  - Bootstrap, W3, custom CSS + keep SEO in mind - metadata, keywords.<br /br> "+
                   "  - optimize web performance using Grunt plugins, art direction (picture and srcset).<br /br> "+
                   "I aspire:<br /br>"+
-                  "  - to earn a Front End Developer title through good work.<br /br> "+
+                  "  - to earn a Senior Web Developer title through good work.<br /br> "+
                   "  - make happy with my work my project managers and at least 50 clients.<br /br> "+
                   "  - contribute for a better and safer web.<br /br> ",
 	"skills" : 
@@ -364,7 +365,7 @@ var bio = {
       "email" : ['ot2@bk.ru','tab4@live.com'],
       "website" : "http://tab4lioz.beget.tech",
       "city" : "L-Imsida",
-      "welcomeTooltip" : "<b><h4><br /br>!      CHECK TOOLTIPS (THERE ARE MANY)     !<br /br>"+
+      "welcomeTooltip" : "<b><h4><br /br>!      CHECK TOOLTIPS!     !<br /br>"+
       "!     AND ENJOY YOUR TIME HERE!     !<br /br></h4></b>"
 		},
 	  "metrics": null,
@@ -484,36 +485,35 @@ var portfolio = {
   
 /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
 /* ~~~~~ DATA-PROPERTIES ~~~~~~ */
-  "collapseHeader" : "  My beginner portfolio. + a real website used by a client!",    
-  "shortStatement" : "I define a motto and a tactics to follow for each project. There is no single golden rule for all projects.&#13;&#10;"+
-  "Discipline and automation first! <a href='https://github.com/AlexeySolonenko/WebsAlxs' target='_blank'><mark><u><b>Check my GitHub repo for project tree, Grunt and version control.</b></u></mark></a> (note an art-direction with a portfolio photo). Since it is a small and academic project, there are no many commits, but version control is a wonderful thing saving time and facilitating collaboration!&#13;&#10;"+
-  "Metrics of this site are shameful yet, but I am hard-headed during my every step to build a way to lightningize it by the time of my graduation project.",
+  "collapseHeader" : "  Overview of my portfolio. Completed and ongoing projects.",    
+  "shortStatement" : "Finding a balance between quality<>cost<>speed is always a challenge. However, I believe that consistency is even more important. Once key aspects of a project a defined, then they must be followed strictly and without deviations. A short motto is a of a good aid. If code reuse and quality are priorities - don't do shortcuts. If 'make it work' is a primary goal - don't fall into trimming and refactoring too much.&#13;&#10;"+
+  "<a href='https://github.com/AlexeySolonenko/WebsAlxs' target='_blank'><mark><u><b>This page GitHub repo. Project tree, Grunt, version control, etc.</b></u></mark></a>&#13;&#10;",
   "portfolio" : [
     {
       "title" : "Real-world used promotion website",
       "url" : "http://studysnami.ru/index.php/ru/",
       "desc" : "Real working website promoting studying English in Malta to Russians. English version is under work. I get to like Joomla a lot while working on this website. W3 css theme.",
       "motto": "Better an egg today than a hen tomorrow.",
-      "pic" : "",
-      "descShort" : "Language courses promotion website. Joomla. W3schools framework - built-in joomla template. My first, 'just get it work now' project. Which surprised me with visitors positive feedback and ignited to give a Front End a professional try. Thanks W3schools for their amazing work.",
+      "pic" : '<img src="http://tab4lioz.beget.tech/wp-content/uploads/src/img/studysnami_016_017.JPG" alt="Piece of a screenshot of a language schools promotion website.">',
+      "descShort" : "Language courses promotion website. Joomla. W3schools framework atop of a built-in joomla template Protostar. User-retenting animations, transitions. Responsive and intuitive navigation.",
       "tooltip": ""
     },
     {
-      "title" : "My portfolio webiste. v1.0.1.",
+      "title" : "My portfolio webiste.",
       "url" : "http://tab4lioz.beget.tech/",
       "desc" : "Portfolio, skills and techniques I am learning at my Front End Development course. A tooltip-rich responsive website that I continuously developing and improving.) ",
       "motto": "'Do it right' is the shortest road.",
       "pic" : "",
-      "descShort" : "Portfolio, skills and techniques I am learning at my Front End Development course. I set my mind to try to enter IT occupational world due to family reasons. My goal is to build solid professional skills set, learn best practices and conquer standards. Wordpress. Bootstrap. A tooltip-rich responsive website that I am continuously developing and improving.",
+      "descShort" : "This current web-page open in your browser. HTML, CSS, JavaScript, Wordpress, Bootstrap. Versatile responsive layout. Customized style built on top of a basic standard template. jQuery. Grunt-automated optimization and image-processing. Iterative parts of this webpage are built automatically using JavaScript. Aria is under development - tonnes of apologies for not having yet released it!",
       "tooltip": ""
     },
     {
-      "title" : "PRE-RELEASE. Arcade game!  ",
+      "title" : "Arcade game! (pre-release) ",
       "url" : "https://cdn.rawgit.com/AlexeySolonenko/frontend-nanodegree-arcade-game/0138f7a3/index.html",
-      "desc" : "Interactive RESPONSIVE (try with different user agents) arcade game (under speedy development). Use developer tools for best experience and the largest field. RequestAnimationFrame HTML5 canvas sprite-based game. KeyBoard + touch controls. JS+CSS for controls and interactivity. A prototype game and libraries for my oncoming projects this fall in educational fields. <a href='https://github.com/AlexeySolonenko/frontend-nanodegree-arcade-game/blob/master' target='_blank'><b>GitHub repo.</b></a>. Menu structures, new types of enemies and missions, lifes and scores are coming soon. Built using JavaScript.",
+      "desc" : "Interactive RESPONSIVE (try with different user agents) arcade game (under speedy development). Use developer tools for best experience and the largest field. RequestAnimationFrame HTML5 canvas sprite-based game. KeyBoard + touch controls. JS+CSS for controls and interactivity. A prototype game and libraries for my oncoming projects this fall in educational fields. <a href='https://github.com/AlexeySolonenko/frontend-nanodegree-arcade-game' target='_blank'><b>GitHub repo.</b></a>. Menu structures, new types of enemies and missions, lifes and scores are coming soon. Built using JavaScript.",
       "motto": "Hero is not a noun, is an -ing verb.",
       "pic" : tools.tempVar1,
-      "descShort" : "An Arcade Game. Responsive layout, both, key-board and touch-screen controls. HTML5 canvas with cashed ligth-weight sprites, OOP structured classes and objects, JavaScript, Bootstrap, jQuery. (Under development).", 
+      "descShort" : "An Arcade Game. Responsive layout, both, key-board and touch-screen controls. HTML5 canvas with cashed ligth-weight sprites, OOP structured classes and objects, JavaScript, Bootstrap, jQuery. <a href='https://github.com/AlexeySolonenko/frontend-nanodegree-arcade-game' target='_blank'><b>GitHub repo.</b></a> (Under development).", 
       "tooltip": "Frogger-your-instance the Great is the last hope of his mother-planet and its scarcing natives!"
     },
     {
@@ -554,7 +554,9 @@ var portfolio = {
         HTMLportfolioShortEntryMotto.replace("%data%", localItem["motto"]);
       
       if(localItem["pic"]!=""){
-        formattedHTML = formattedHTML + HTMLportfolioshortEntryPic.replace("%data%",localItem["pic"])
+        formattedHTML = formattedHTML + HTMLportfolioshortEntryPicBigScr.replace("%data%",localItem["pic"]);
+        formattedHTML = formattedHTML + HTMLportfolioshortEntryPicSmallScr.replace("%data%",localItem["pic"]);
+        
       };
       formattedHTML = formattedHTML + HTMLportfolioShortEntryDescShort.replace("%data%",localItem["descShort"]);
       formattedHTML = HTMLportfolioShortEntryBox.replace("%data%",formattedHTML);
