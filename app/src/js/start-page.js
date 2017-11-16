@@ -4,6 +4,7 @@ bio.display(bio);
 portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
 modalIntro.build(modalIntro);
+certs.display(certs);
 
 var carouselArcadeRestart = function(){
   $('#user-arcade-game-carousel').carousel('cycle');
@@ -27,6 +28,8 @@ console.log('document ready');
   $(".start-page-portfolio-short-plus").css('display','none');
   $(".start-page-commitsBio-minus").css('display','none');
   $(".start-page-commitsBio-plus").css('display','inline');
+  $(".start-page-certs-minus").css('display','none');
+  $(".start-page-certs-plus").css('display','inline');
   $('[data-toggle="tooltip"]').tooltip();
   /* setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("show");
@@ -37,7 +40,11 @@ console.log('document ready');
   setTimeout(function(){
       $('.user-modal-intro').modal('show');
     },2000);
-   
+  
+  // if name is being rendered on a small screen,
+  // then break this name in two lines to avoid
+  // line overflow - look for the first space character
+  // and replace it with line break
   setTimeout(function(){
       $('.start-page-id-name-small span').each(function(){
         ($(this).text() == " ")&&
@@ -59,6 +66,10 @@ console.log('document ready');
 // $('.user-hide-show').click(console.log('in'));//'user-span-flies-left-start');
 // short portfolio collapsable 
 
+// when User closes the modal using one of its buttons,
+// then the intro animation restarts. The intro animation
+// is the animation of letters flying from the left
+
 $('.start-page-id-name-small span').css('display','inline-block');
 $('.user-modal-intro-button1').click(function(){
   $('.start-page-id-name-small span').css('display','none');
@@ -74,6 +85,8 @@ $('.user-modal-intro-button1').click(function(){
     $('.start-page-id-intro b:first-of-type span').css('display','inline-block');
   },200);
 });
+// end of animation restart block
+
 
 $('.start-page-id-name-small span').hover(function(){
    $(this).css('display','none');
@@ -96,6 +109,7 @@ $('.start-page-id-intro b:first-of-type span').hover(function(){
   },30);
 });
 
+// portfolio collapsable
 $(".start-page-portfolio-short").click( function(){ 
 
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
@@ -115,5 +129,16 @@ $(".start-page-commitsBioShort").click( function(){
   ) : (
    $(".start-page-commitsBio-minus").css('display','inline'),
    $(".start-page-commitsBio-plus").css('display','none')
+  ); 
+});
+
+// certs collapsible
+$(".start-page-certs").click( function(){ 
+  $(".start-page-certs-collapse").is(':visible') ? (
+   $(".start-page-certs-minus").css('display','none'),
+   $(".start-page-certs-plus").css('display','inline')
+  ) : (
+   $(".start-page-certs-minus").css('display','inline'),
+   $(".start-page-certs-plus").css('display','none')
   ); 
 });

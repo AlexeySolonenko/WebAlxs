@@ -224,8 +224,23 @@ var HTMLcommitsBioCollapseButton = '<div class="panel cfa-button"><b>'+
 var HTMLcommitsBioTableCore='<table class="table table-bordered table-striped"><tr> <th>Time</th> <th>Title</th> <th>Comment</th></tr>%data%</table>';
 var HTMLcommitsBioTableEntry='<tr> <td>%data-time%</td> <td>%data-title%</td> <td>%data-comment%</td></tr>';
 
-
-
+// CERTIFICATES
+var HTMLcertsCollapsible = '<div class="panel cfa-button"><b>'+
+    '<span class="start-page-certs-plus glyphicon glyphicon-play"></span>'+
+    '<span class="start-page-certs-minus glyphicon glyphicon-triangle-bottom"></span>'+
+    '%data%'+
+    '</b></div>';
+var HTMLcertsTableHeaderMidTerm='<h4>Mid-term</h4><table class="table table-bordered table-striped"><tr> <th>Name</th> <th>Year</th> <th>Certificate</th> <th>Demo</th> </tr>%data%</table>';
+var HTMLcertsTableHeaderShortTerm='<h4>Short-term</h4><table class="table table-bordered table-striped"><tr> <th>Name</th> <th>Year</th> <th>Certificate</th> <th>Demo</th> </tr>%data%</table>';
+var HTMLcertsTableHeaderLongTerm='<h4>Long-term</h4><table class="table table-bordered table-striped"><tr> <th>Name</th> <th>Year</th> <th>Certificate</th> <th>Demo</th> </tr>%data%</table>';
+var HTMLcertsTableEntry="<tr> <td>%data-name%</td> <td>%data-year%</td>" +
+" <td><a href='%data-cert-link%' target='_blank'><b>%data-cert-descr%</b></a></td> "+ 
+" <td><a href='%data-demo-link%' target='_blank'><b>%data-demo-descr%</b></a></td> </tr>";
+    
+    
+    
+    
+    // OTHER
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
@@ -333,14 +348,19 @@ var bio = {
       {"name" : "Responsive", "level" : "" },
       {"name" : "jQuery", "level" : "" },
       {"name" : "Bootstrap", "level" : "" },
-      {"name" : "Industrial HMI background", "level" : "" }
+      {"name" : "Industrial HMI background", "level" : "" },
+      {"name": "ReactJS", "level" : ""},
+      {"name": "Redux", "level" : ""},
+      {"name": "mongo.js", "level" : ""},
+      {"name": "express", "level" : ""},
+      {"name": "axios", "level" : ""}
 	  ],
     "commitsBio":[
       {"time":"2017", "title":"fix: Start Front End Development Course","comment":"Started my course in March/April. Welcome to my portfolio website! )"},
       {"time":"2017", "title":"refactor: Make first working website.","comment":"Made first working website for a real client. Got surprised by result and feedback. Interrogated IT acquaintances and decided to give a try to enter IT field."},
       {"time":"2015", "title":"test: Move to Malta","comment":"Oil&gas collapse laid us off, but we ended happily up in Malta."},
       {"time":"2015", "title":"docs: Oil industry fall-down.","comment":"In 4.5 years earend two promotions, get employed by a Forbes super-major, spent 65% of time away from home on business trips. Still got laid off together with other thousands."},
-      {"time":"<b>2012 10 27</b>", "title":"<b>BEST: MARRIED LIDDY</b>","comment":"<b>Till today is second to init my achievement ! )</b>"},      
+      {"time":"2012 10 27", "title":"Married my beloved wife","comment":"Motivation and inspiration."},      
       {"time":"2011", "title":"feat: Join oil&gas industry","comment":"Started oil&gas career at an international project."},
       {"time":"2009", "title":"test: Construction and project support","comment":"Joined a Syrian-led ambitious start-up within commercial construction"},
       {"time":"2007", "title":"style:Trimmed degree with a new haircut","comment":"Graduated as Industrial Automation Engineer. Civil-trained reserve (operations support) army officer. Landed my first electronics technician job(s)."},
@@ -477,9 +497,114 @@ var bio = {
 }
 
 
-/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
-/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
-/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
+/* CERTS OBJECT */  /*  CERTS OBJECT */
+/* CERTS OBJECT */  /*  CERTS OBJECT */
+/* CERTS OBJECT */  /*  CERTS OBJECT */
+
+var certs = {
+/* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+/* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+  "certsCollapsible": "Occupational Certificates",
+  "longTerm": [
+    {
+      "name": "Front-End Developer @ Udacity",
+      "yearCompleted": "2017-ongoing",
+      "certLink":"",
+      "certDescr":" Nano-degree 60% completed",
+      "demoLink":"#",
+      "demoDescr":"Current site, arcade game."  
+    }
+  ],
+  "midTerm": [
+    { 
+      "name": "Node with React: Fullstack Web Development @ Udemy",
+      "yearCompleted": "2017",
+      "certLink":"https://www.udemy.com/certificate/UC-K0VMHX7P/",
+      "certDescr":"Certificate",
+      "demoLink":"https://serene-mountain-23256.herokuapp.com/surveys",
+      "demoDescr":"Working, but debugging 3d party email service, sorry."    
+    }
+  ],
+  "shortTerm": [
+  ],
+  
+/* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+/* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+  "display": function(certs) {
+    // collapsible button text
+    var formattedHTML = "";
+    certs["certsCollapsible"].length > 2 ? (
+      formattedHTML = HTMLcertsCollapsible.replace("%data%",certs["certsCollapsible"])
+    ):(
+      console.log("Header for collapse certificates button is not provided") 
+    );
+    $(".start-page-certs").append(formattedHTML);
+    formattedHTML = "";
+
+    
+    
+    // table 
+    var formattedHTMLmidTerm = "";
+    var formattedHTMLshortTerm = "";
+    var formattedHTMLlongTerm = "";
+    
+
+    if( certs["longTerm"].length > 0 ) {
+      certs["longTerm"].forEach(function(cert){
+        var formattedHTMLraw = "";
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-name%",cert["name"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-year%",cert["yearCompleted"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-cert-link%",cert["certLink"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-cert-descr%",cert["certDescr"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-demo-link%",cert["demoLink"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-demo-descr%",cert["demoDescr"]);
+        formattedHTMLlongTerm = formattedHTMLraw;
+        formattedHTMLlongTerm = HTMLcertsTableHeaderLongTerm.replace("%data%",formattedHTMLlongTerm);
+        
+      });
+    } else {
+      var formattedHTMLmidTerm = "";
+    };
+    
+    if( certs["midTerm"].length > 0 ) {
+      certs["midTerm"].forEach(function(cert){
+        var formattedHTMLraw = "";
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-name%",cert["name"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-year%",cert["yearCompleted"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-cert-link%",cert["certLink"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-cert-descr%",cert["certDescr"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-demo-link%",cert["demoLink"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-demo-descr%",cert["demoDescr"]);
+        formattedHTMLmidTerm = formattedHTMLraw;
+        formattedHTMLmidTerm = HTMLcertsTableHeaderMidTerm.replace("%data%",formattedHTMLmidTerm);
+      });
+    } else {
+      var formattedHTMLmidTerm = "";
+    };
+    
+    if( certs["shortTerm"].length > 0 ) {
+      certs["shortTerm"].forEach(function(cert){
+        var formattedHTMLraw = "";
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-name%",cert["name"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-year%",cert["yearCompleted"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-cert-link%",cert["certLink"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-cert-descr%",cert["certDescr"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-demo-link%",cert["demoLink"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-demo-descr%",cert["demoDescr"]);
+        formattedHTMshortTerm = formattedHTMLraw;
+        formattedHTMLshortTerm = HTMLcertsTableHeaderShortTerm.replace("%data%",formattedHTMLShortTerm);
+      });
+    } else {
+      var formattedHTMLshortTerm = "";
+    };
+    
+    formattedHTML = formattedHTMLlongTerm + formattedHTMLmidTerm + formattedHTMLshortTerm;
+    $(".start-page-certs-collapse").append(formattedHTML);
+    formattedHTML = "";
+  
+  }
+}; // END OF CERTS OBJECT
+
 
 var portfolio = {
   
@@ -569,6 +694,12 @@ var portfolio = {
     
   
 }
+
+/* CERTS OBJECT */  /* CERTS OBJECT */
+/* CERTS OBJECT */  /* CERTS OBJECT */
+/* CERTS OBJECT */  /* CERTS OBJECT */
+
+
 
 
 /* WORK OBJECT */
@@ -765,6 +896,7 @@ bio.display(bio);
 portfolio.displayShort(portfolio);
 bio.displayCommits(bio);
 modalIntro.build(modalIntro);
+certs.display(certs);
 
 var carouselArcadeRestart = function(){
   $('#user-arcade-game-carousel').carousel('cycle');
@@ -788,6 +920,8 @@ console.log('document ready');
   $(".start-page-portfolio-short-plus").css('display','none');
   $(".start-page-commitsBio-minus").css('display','none');
   $(".start-page-commitsBio-plus").css('display','inline');
+  $(".start-page-certs-minus").css('display','none');
+  $(".start-page-certs-plus").css('display','inline');
   $('[data-toggle="tooltip"]').tooltip();
   /* setTimeout(function(){
       $('.user-welcome-tooltip').tooltip("show");
@@ -798,7 +932,11 @@ console.log('document ready');
   setTimeout(function(){
       $('.user-modal-intro').modal('show');
     },2000);
-   
+  
+  // if name is being rendered on a small screen,
+  // then break this name in two lines to avoid
+  // line overflow - look for the first space character
+  // and replace it with line break
   setTimeout(function(){
       $('.start-page-id-name-small span').each(function(){
         ($(this).text() == " ")&&
@@ -820,6 +958,10 @@ console.log('document ready');
 // $('.user-hide-show').click(console.log('in'));//'user-span-flies-left-start');
 // short portfolio collapsable 
 
+// when User closes the modal using one of its buttons,
+// then the intro animation restarts. The intro animation
+// is the animation of letters flying from the left
+
 $('.start-page-id-name-small span').css('display','inline-block');
 $('.user-modal-intro-button1').click(function(){
   $('.start-page-id-name-small span').css('display','none');
@@ -835,6 +977,8 @@ $('.user-modal-intro-button1').click(function(){
     $('.start-page-id-intro b:first-of-type span').css('display','inline-block');
   },200);
 });
+// end of animation restart block
+
 
 $('.start-page-id-name-small span').hover(function(){
    $(this).css('display','none');
@@ -857,6 +1001,7 @@ $('.start-page-id-intro b:first-of-type span').hover(function(){
   },30);
 });
 
+// portfolio collapsable
 $(".start-page-portfolio-short").click( function(){ 
 
   $(".start-page-portfolio-short-collapse").is(':visible') ? (
@@ -876,5 +1021,16 @@ $(".start-page-commitsBioShort").click( function(){
   ) : (
    $(".start-page-commitsBio-minus").css('display','inline'),
    $(".start-page-commitsBio-plus").css('display','none')
+  ); 
+});
+
+// certs collapsible
+$(".start-page-certs").click( function(){ 
+  $(".start-page-certs-collapse").is(':visible') ? (
+   $(".start-page-certs-minus").css('display','none'),
+   $(".start-page-certs-plus").css('display','inline')
+  ) : (
+   $(".start-page-certs-minus").css('display','inline'),
+   $(".start-page-certs-plus").css('display','none')
   ); 
 });

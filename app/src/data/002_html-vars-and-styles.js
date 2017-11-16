@@ -42,8 +42,23 @@ var HTMLcommitsBioCollapseButton = '<div class="panel cfa-button"><b>'+
 var HTMLcommitsBioTableCore='<table class="table table-bordered table-striped"><tr> <th>Time</th> <th>Title</th> <th>Comment</th></tr>%data%</table>';
 var HTMLcommitsBioTableEntry='<tr> <td>%data-time%</td> <td>%data-title%</td> <td>%data-comment%</td></tr>';
 
-
-
+// CERTIFICATES
+var HTMLcertsCollapsible = '<div class="panel cfa-button"><b>'+
+    '<span class="start-page-certs-plus glyphicon glyphicon-play"></span>'+
+    '<span class="start-page-certs-minus glyphicon glyphicon-triangle-bottom"></span>'+
+    '%data%'+
+    '</b></div>';
+var HTMLcertsTableHeaderMidTerm='<h4>Mid-term</h4><table class="table table-bordered table-striped"><tr> <th>Name</th> <th>Year</th> <th>Certificate</th> <th>Demo</th> </tr>%data%</table>';
+var HTMLcertsTableHeaderShortTerm='<h4>Short-term</h4><table class="table table-bordered table-striped"><tr> <th>Name</th> <th>Year</th> <th>Certificate</th> <th>Demo</th> </tr>%data%</table>';
+var HTMLcertsTableHeaderLongTerm='<h4>Long-term</h4><table class="table table-bordered table-striped"><tr> <th>Name</th> <th>Year</th> <th>Certificate</th> <th>Demo</th> </tr>%data%</table>';
+var HTMLcertsTableEntry="<tr> <td>%data-name%</td> <td>%data-year%</td>" +
+" <td><a href='%data-cert-link%' target='_blank'><b>%data-cert-descr%</b></a></td> "+ 
+" <td><a href='%data-demo-link%' target='_blank'><b>%data-demo-descr%</b></a></td> </tr>";
+    
+    
+    
+    
+    // OTHER
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';

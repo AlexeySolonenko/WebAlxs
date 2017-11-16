@@ -30,14 +30,19 @@ var bio = {
       {"name" : "Responsive", "level" : "" },
       {"name" : "jQuery", "level" : "" },
       {"name" : "Bootstrap", "level" : "" },
-      {"name" : "Industrial HMI background", "level" : "" }
+      {"name" : "Industrial HMI background", "level" : "" },
+      {"name": "ReactJS", "level" : ""},
+      {"name": "Redux", "level" : ""},
+      {"name": "mongo.js", "level" : ""},
+      {"name": "express", "level" : ""},
+      {"name": "axios", "level" : ""}
 	  ],
     "commitsBio":[
       {"time":"2017", "title":"fix: Start Front End Development Course","comment":"Started my course in March/April. Welcome to my portfolio website! )"},
       {"time":"2017", "title":"refactor: Make first working website.","comment":"Made first working website for a real client. Got surprised by result and feedback. Interrogated IT acquaintances and decided to give a try to enter IT field."},
       {"time":"2015", "title":"test: Move to Malta","comment":"Oil&gas collapse laid us off, but we ended happily up in Malta."},
       {"time":"2015", "title":"docs: Oil industry fall-down.","comment":"In 4.5 years earend two promotions, get employed by a Forbes super-major, spent 65% of time away from home on business trips. Still got laid off together with other thousands."},
-      {"time":"<b>2012 10 27</b>", "title":"<b>BEST: MARRIED LIDDY</b>","comment":"<b>Till today is second to init my achievement ! )</b>"},      
+      {"time":"2012 10 27", "title":"Married my beloved wife","comment":"Motivation and inspiration."},      
       {"time":"2011", "title":"feat: Join oil&gas industry","comment":"Started oil&gas career at an international project."},
       {"time":"2009", "title":"test: Construction and project support","comment":"Joined a Syrian-led ambitious start-up within commercial construction"},
       {"time":"2007", "title":"style:Trimmed degree with a new haircut","comment":"Graduated as Industrial Automation Engineer. Civil-trained reserve (operations support) army officer. Landed my first electronics technician job(s)."},
@@ -174,9 +179,114 @@ var bio = {
 }
 
 
-/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
-/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
-/* PORTFOLIO OBJECT */  /* PORTFOLIO OBJECT */
+/* CERTS OBJECT */  /*  CERTS OBJECT */
+/* CERTS OBJECT */  /*  CERTS OBJECT */
+/* CERTS OBJECT */  /*  CERTS OBJECT */
+
+var certs = {
+/* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+/* ~~~~~ DATA-PROPERTIES ~~~~~~ */
+  "certsCollapsible": "Occupational Certificates",
+  "longTerm": [
+    {
+      "name": "Front-End Developer @ Udacity",
+      "yearCompleted": "2017-ongoing",
+      "certLink":"",
+      "certDescr":" Nano-degree 60% completed",
+      "demoLink":"#",
+      "demoDescr":"Current site, arcade game."  
+    }
+  ],
+  "midTerm": [
+    { 
+      "name": "Node with React: Fullstack Web Development @ Udemy",
+      "yearCompleted": "2017",
+      "certLink":"https://www.udemy.com/certificate/UC-K0VMHX7P/",
+      "certDescr":"Certificate",
+      "demoLink":"https://serene-mountain-23256.herokuapp.com/surveys",
+      "demoDescr":"Working, but debugging 3d party email service, sorry."    
+    }
+  ],
+  "shortTerm": [
+  ],
+  
+/* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+/* ~~~~~ FUNCTIONS-METHODS ~~~~~~ */
+  "display": function(certs) {
+    // collapsible button text
+    var formattedHTML = "";
+    certs["certsCollapsible"].length > 2 ? (
+      formattedHTML = HTMLcertsCollapsible.replace("%data%",certs["certsCollapsible"])
+    ):(
+      console.log("Header for collapse certificates button is not provided") 
+    );
+    $(".start-page-certs").append(formattedHTML);
+    formattedHTML = "";
+
+    
+    
+    // table 
+    var formattedHTMLmidTerm = "";
+    var formattedHTMLshortTerm = "";
+    var formattedHTMLlongTerm = "";
+    
+
+    if( certs["longTerm"].length > 0 ) {
+      certs["longTerm"].forEach(function(cert){
+        var formattedHTMLraw = "";
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-name%",cert["name"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-year%",cert["yearCompleted"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-cert-link%",cert["certLink"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-cert-descr%",cert["certDescr"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-demo-link%",cert["demoLink"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-demo-descr%",cert["demoDescr"]);
+        formattedHTMLlongTerm = formattedHTMLraw;
+        formattedHTMLlongTerm = HTMLcertsTableHeaderLongTerm.replace("%data%",formattedHTMLlongTerm);
+        
+      });
+    } else {
+      var formattedHTMLmidTerm = "";
+    };
+    
+    if( certs["midTerm"].length > 0 ) {
+      certs["midTerm"].forEach(function(cert){
+        var formattedHTMLraw = "";
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-name%",cert["name"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-year%",cert["yearCompleted"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-cert-link%",cert["certLink"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-cert-descr%",cert["certDescr"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-demo-link%",cert["demoLink"]);
+        formattedHTMLraw = formattedHTMLraw.replace("%data-demo-descr%",cert["demoDescr"]);
+        formattedHTMLmidTerm = formattedHTMLraw;
+        formattedHTMLmidTerm = HTMLcertsTableHeaderMidTerm.replace("%data%",formattedHTMLmidTerm);
+      });
+    } else {
+      var formattedHTMLmidTerm = "";
+    };
+    
+    if( certs["shortTerm"].length > 0 ) {
+      certs["shortTerm"].forEach(function(cert){
+        var formattedHTMLraw = "";
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-name%",cert["name"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-year%",cert["yearCompleted"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-cert-link%",cert["certLink"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-cert-descr%",cert["certDescr"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-demo-link%",cert["demoLink"]);
+        formattedHTMLraw = HTMLcertsTableEntry.replace("%data-demo-descr%",cert["demoDescr"]);
+        formattedHTMshortTerm = formattedHTMLraw;
+        formattedHTMLshortTerm = HTMLcertsTableHeaderShortTerm.replace("%data%",formattedHTMLShortTerm);
+      });
+    } else {
+      var formattedHTMLshortTerm = "";
+    };
+    
+    formattedHTML = formattedHTMLlongTerm + formattedHTMLmidTerm + formattedHTMLshortTerm;
+    $(".start-page-certs-collapse").append(formattedHTML);
+    formattedHTML = "";
+  
+  }
+}; // END OF CERTS OBJECT
+
 
 var portfolio = {
   
@@ -266,6 +376,12 @@ var portfolio = {
     
   
 }
+
+/* CERTS OBJECT */  /* CERTS OBJECT */
+/* CERTS OBJECT */  /* CERTS OBJECT */
+/* CERTS OBJECT */  /* CERTS OBJECT */
+
+
 
 
 /* WORK OBJECT */
